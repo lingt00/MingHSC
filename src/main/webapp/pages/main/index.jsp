@@ -32,7 +32,7 @@
 </head>
 <body>
     <div id="pageIndex" data-role="page" data-add-back-btn="true" >
-        <div data-role="header" data-id="headNva" data-position="fixed" data-theme="b" class="container">
+        <div data-role="header" data-position="fixed" data-theme="b" class="container">
             <h1>明日博·家校通</h1>
         </div>
 
@@ -43,7 +43,7 @@
                     <tr>
                         <td style="width:80px;">王老师</td>
                         <td class="td-btn">第1题做得很好；第2题在XX知识点存在理解不到之处，请。。。</td>
-                        <td style="display: none;"><a data-role="button" data-ajax="true" data-inline="true" data-transition="slide" href="<%=basePath%>jb/hssmsg">详细</a> </td>
+                        <td style="display: none;"><a data-role="button" data-ajax="true" data-inline="true" data-transition="slide" href="<c:url value="/jb/hssmsg"/>">详细</a> </td>
                     </tr>
                     <tr>
                         <td>出勤</td>
@@ -89,7 +89,7 @@
 
         </div>
 
-        <div data-role="footer" data-position="fixed" data-fullscreen="true" data-id="footerNav"  class="container" style="padding-left:0;padding-right:0;">
+        <div data-role="footer" data-position="fixed" class="container" style="padding-left:0;padding-right:0;">
            <div data-role="navbar">
                 <ul class="operating row text-center linear-g nva-menu">
                     <li class="col-xs-4"><a href="#" id="menu-btn-0" class="ui-btn-active">首页</a></li>
@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <div id="pageTwo" data-role="page" data-fullscreen="true" data-theme="a" data-add-back-btn="true">
+    <div id="pageTwo" data-role="page" data-theme="a" data-add-back-btn="true">
         <div data-role="header"  class="container">
             <h1>明日博·家校通</h1>
         </div>

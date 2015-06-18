@@ -9,7 +9,7 @@
     });
     $(document).bind("mobileinit", function() {
         $.mobile.page.prototype.options.addBackBtn = true;
-        $.mobile.page.prototype.options.backBtnText="后退";
+        $.mobile.page.prototype.options.backBtnText="返回";
 //        $.mobile.allowCrossDomainPages = true;
 //        $.mobile.page.prototype.options.domCache=true
     });
