@@ -1,0 +1,17 @@
+<decorators defaultdir="/decorators">
+    <!--<excludes>-->
+        <!--<pattern>/</pattern>-->
+    <!--</excludes>-->
+    <decorator name="wxBsDec" page="wxBsDec.jsp">
+        <pattern>/bs/*</pattern>
+    </decorator>
+    <decorator name="wxJqmDec" page="wxJqmDec.jsp">
+        <pattern>/jqm/*</pattern>
+    </decorator>
+    <decorator name="wxJbDec" page="wxJbDec.jsp">
+        <pattern>/jb/*</pattern>
+    </decorator>
+    <!--<decorator name ="printable" page ="contentPrintableDec.jsp"/>-->
+    <!--<pattern>*/*.do*</pattern>-->
+    <!--</decorator>-->
+</decorators>
