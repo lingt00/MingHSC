@@ -4,6 +4,15 @@ table tbody tr td:first-child{text-align: center;}
 
 ul{padding:0;margin:0;}
 li{list-style:none;}
+
+.content-info-box{border-top:3px solid #1BA1E2;margin:5px 0;padding:5px;background-color: #FFFFFF;box-shadow: 3px 3px 2px #BBBBBB;border-radius:2px;}
+.content-info-box .info-title-box{font-weight:bold;margin: 5px;}
+.content-info-box .info-content-box{margin: 10px 5px 10px 5px;}
+.content-info-box .info-attachment-box{margin: 10px 5px 10px 5px;}
+.content-info-box .info-attachment-box .tint{margin-right:20px;}
+.content-info-box .info-author-box{margin: 5px;text-align: right;color: #999;}
+
+
 .user_box{width:100%;padding:2.2em 0;}
 .avatar{border:2px solid #999;border-radius:50%;padding:.8em;}
 .username{display:inline-block;width:100%;padding:10px 0 20px;font-size:1.2em;color:#999;border-bottom:1px solid #e6e6e6;}

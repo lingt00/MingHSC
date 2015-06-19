@@ -33,8 +33,9 @@
         $("#msg-send").click(function(){
             var msg = $("#emoInput").html();
 
-
-
+            var obj = {userUrl:"<c:url value="/images/p.jpg"/>",userName:"小明",createDatetime:"2015-06-19 11:18",content:msg};
+            createReplyLi(obj,$("#content-reply-box-stu"));
+            mScrollTo("faceContent");
             $("#emoInput").html("");
         });
 

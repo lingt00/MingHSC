@@ -11,3 +11,4 @@
 <script type="text/javascript" src="<c:url value="/jQuery/commontool/jbtool.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/jQuery/commontool/commontools.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/jQuery/demo.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/jQuery/projectUtil.js"/>"></script>

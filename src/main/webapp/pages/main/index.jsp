@@ -4,7 +4,7 @@
 <html lang="zh-cn">
 <head>
     <base href="<%=basePath%>">
-    <title>明日博-家校通</title>
+    <title>明日博·家校通</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
 <body>
     <div id="pageIndex" data-role="page" data-add-back-btn="true" >
         <div data-role="header" data-position="fixed" data-theme="b" class="container">
-            <h1>明日博·家校通</h1>
+            <h1 class="ui-title">明日博·家校通</h1>
         </div>
 
         <div role="main" class="ui-content">
