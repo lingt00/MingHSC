@@ -31,7 +31,7 @@
     </script>
 </head>
 <body>
-    <div id="pageIndex" data-role="page" data-add-back-btn="true" >
+    <div id="pageIndex" data-role="page" >
         <div data-role="header" data-position="fixed" data-theme="b" class="container">
             <h1 class="ui-title">明日博·家校通</h1>
         </div>

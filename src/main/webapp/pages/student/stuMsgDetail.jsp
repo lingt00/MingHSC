@@ -3,23 +3,24 @@
 <%@ include file="/common/taglibs.jsp" %>
 <html>
 <head>
-    <title>h-Student-School-Message</title>
+    <title>Student-School-Message</title>
     <jsp:include page="/pages/basis/head.jsp"/>
 </head>
     <body>
-    <div id="h-Student-School-Message" data-role="page" data-url="<c:url value="/stu"/> " data-add-back-btn="true" >
+    <div id="Student-School-Message-Detail" data-role="page" data-add-back-btn="true" data-dom-cache="true">
         <div data-role="header" data-position="fixed" data-theme="b" class="container" style="padding:0;">
             <a data-role="button" data-inline="true" data-rel="back"  data-icon="arrow-l" data-mini="true" href="#" class="ui-btn-left ui-btn-icon-left" style="margin-top:-3px;">返回</a>
             <h1 class="ui-title">明日博·家校通</h1>
-            <a data-role="button" data-inline="true" data-rel="popup" data-icon="bars" data-mini="true" href="#popupMenu" class="ui-btn-right ui-btn-icon-left" data-theme="b" data-transition="pop" style="margin-top:-3px;">列表</a>
-            <div data-role="popup" id="popupMenu" data-theme="c" style="min-width:300px;">
-                <ul data-role="listview" data-theme="c"  data-inset="true">
-                    <li><a href="#" >作业1</a></li>
-                    <li><a href="#" >作业2</a></li>
-                    <li><a href="#" >作业3</a></li>
-                    <li><a href="#" >作业4</a></li>
-                </ul>
-            </div>
+            <a data-role="button" data-inline="true" data-ajax="true" data-icon="bars"    data-mini="true" href="<c:url value="/stujb/msgList"/> " class="ui-btn-right ui-btn-icon-left" data-transition="slide" style="margin-top:-3px;">列表</a>
+            <%--<a data-role="button" data-inline="true" data-rel="popup" data-icon="bars" data-mini="true" href="#popupMenu" class="ui-btn-right ui-btn-icon-left" data-theme="b" data-transition="pop" style="margin-top:-3px;">列表</a>--%>
+        <%--<div data-role="popup" id="popupMenu" data-theme="c" style="min-width:300px;">--%>
+        <%--<ul data-role="listview" data-theme="c"  data-inset="true">--%>
+        <%--<li><a href="#" >作业1</a></li>--%>
+        <%--<li><a href="#" >作业2</a></li>--%>
+        <%--<li><a href="#" >作业3</a></li>--%>
+        <%--<li><a href="#" >作业4</a></li>--%>
+        <%--</ul>--%>
+        <%--</div>--%>
         </div>
         <div data-role="content" class="container" style="padding:1px;">
 

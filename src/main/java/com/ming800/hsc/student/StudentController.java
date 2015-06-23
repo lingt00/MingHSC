@@ -19,7 +19,11 @@ public class StudentController {
 
 
     @RequestMapping(value = "/stujb/hssmsg",method = RequestMethod.GET)
-    public String hSSMsg() {
-        return "student/hSSMsg";
+    public String stuMsgDetail() {
+        return "student/stuMsgDetail";
+    }
+    @RequestMapping(value = "/stujb/msgList",method = RequestMethod.GET)
+    public String stuMsgList() {
+        return "student/stuMsgList";
     }
 }
