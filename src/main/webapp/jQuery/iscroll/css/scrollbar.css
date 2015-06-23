@@ -10,7 +10,7 @@
  * 下拉样式 Pull down styles
  *
  */
-#pullDown, #pullUp {
+.pullDown, .pullUp {
 	background:#fff;
 	height:40px;
 	line-height:40px;
@@ -20,7 +20,7 @@
 	font-size:14px;
 	color:#888;
 }
-#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+.pullDown .pullDownIcon, .pullUp .pullUpIcon  {
 	display:block; float:left;
 	width:40px; height:40px;
 	background:url(../images/pull-icon.png) 0 0 no-repeat;
@@ -28,22 +28,22 @@
 	-webkit-transition-property:-webkit-transform;
 	-webkit-transition-duration:250ms;	
 }
-#pullDown .pullDownIcon {
+.pullDown .pullDownIcon {
 	-webkit-transform:rotate(0deg) translateZ(0);
 }
-#pullUp .pullUpIcon  {
+.pullUp .pullUpIcon  {
 	-webkit-transform:rotate(-180deg) translateZ(0);
 }
 
-#pullDown.flip .pullDownIcon {
+.pullDown.flip .pullDownIcon {
 	-webkit-transform:rotate(-180deg) translateZ(0);
 }
 
-#pullUp.flip .pullUpIcon {
+.pullUp.flip .pullUpIcon {
 	-webkit-transform:rotate(0deg) translateZ(0);
 }
 
-#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+.pullDown.loading .pullDownIcon, .pullUp.loading .pullUpIcon {
 	background-position:0 100%;
 	-webkit-transform:rotate(0deg) translateZ(0);
 	-webkit-transition-duration:0ms;

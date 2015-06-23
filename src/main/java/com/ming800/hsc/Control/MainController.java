@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(value = "/stu",method = RequestMethod.GET)
     public String main() {
-        return "/main/index";
+        return "student/index";
     }
 
 
     @RequestMapping(value = "/jb/hssmsg",method = RequestMethod.GET)
     public String hSSMsg() {
-        return "/main/hSSMsg";
+        return "student/hSSMsg";
     }
 
 }
