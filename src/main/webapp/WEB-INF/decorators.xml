@@ -9,7 +9,7 @@
         <pattern>/jqm/*</pattern>
     </decorator>
     <decorator name="wxJbDec" page="wxJbDec.jsp">
-        <pattern>/jb/*</pattern>
+        <pattern>/*jb/*</pattern>
     </decorator>
     <!--<decorator name ="printable" page ="contentPrintableDec.jsp"/>-->
     <!--<pattern>*/*.do*</pattern>-->

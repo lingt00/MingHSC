@@ -43,7 +43,7 @@
                     <tr>
                         <td style="width:80px;">王老师</td>
                         <td class="td-btn">第1题做得很好；第2题在XX知识点存在理解不到之处，请。。。</td>
-                        <td style="display: none;"><a data-role="button" data-ajax="true" data-inline="true" data-transition="slide" href="<c:url value="/jb/hssmsg"/>">详细</a> </td>
+                        <td style="display: none;"><a data-role="button" data-ajax="true" data-inline="true" data-transition="slide" href="<c:url value="/stujb/hssmsg"/>">详细</a> </td>
                     </tr>
                     <tr>
                         <td>出勤</td>
