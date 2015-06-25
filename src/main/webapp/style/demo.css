@@ -2,12 +2,21 @@
 table tbody tr td{min-height:50px;}
 table tbody tr td:first-child{text-align: center;}
 
-ul{padding:0;margin:0;}
+ul,li {padding:0;margin:0;border:0;}
+body {-webkit-user-select:none;-webkit-text-size-adjust:none; font-family:helvetica;}
 li{list-style:none;}
 
-.content-info-box{border-top:3px solid #1BA1E2;margin:5px 0;padding:5px;background-color: #FFFFFF;box-shadow: 3px 3px 2px #BBBBBB;border-radius:2px;}
+.ui-btn-left, .ui-btn-right{top: 0;}
+.ui-header-fixed .ui-btn-left, .ui-header-fixed .ui-btn-right{margin-top:0;}
+
+.content-first table tr td a{}
+.content-first table tr td:last-child{padding:0;margin:0;}
+.content-first table tr td:last-child a{margin:0;width:80px;}
+
+.content-info-box{position:relative;border-top:3px solid #1BA1E2;margin:5px 0px;padding:5px;background-color: #FFFFFF;box-shadow: 3px 3px 2px #BBBBBB;border-radius:2px;}
+.content-info-box div{padding:0 10px;}
 .content-info-box .info-title-box{font-weight:bold;margin: 5px;}
-.content-info-box .info-content-box{margin: 10px 5px 10px 5px;}
+.content-info-box .info-content-box{position:relative; margin: 10px 5px 10px 5px;text-align:left;line-height:20px;}
 .content-info-box .info-attachment-box{margin: 10px 5px 10px 5px;}
 .content-info-box .info-attachment-box .tint{margin-right:20px;}
 .content-info-box .info-author-box{margin: 5px;text-align: right;color: #999;}

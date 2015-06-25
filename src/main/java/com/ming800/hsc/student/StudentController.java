@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class StudentController {
     @RequestMapping(value = "/stu",method = RequestMethod.GET)
     public String main() {
-        return "student/index";
+        return "student/stuIndex";
     }
 
 
@@ -25,5 +25,11 @@ public class StudentController {
     @RequestMapping(value = "/stujb/msgList",method = RequestMethod.GET)
     public String stuMsgList() {
         return "student/stuMsgList";
+    }
+
+
+    @RequestMapping(value = "/stujb/List",method = RequestMethod.GET)
+    public String List() {
+        return "main/list";
     }
 }
