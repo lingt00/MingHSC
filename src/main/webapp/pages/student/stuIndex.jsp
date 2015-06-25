@@ -48,7 +48,7 @@
                     <tr>
                         <td>出勤</td>
                         <td> 小明:2014-06-22 英语课堂第一课时 考勤成功!剩余课时21.</td>
-                        <td ><a data-ajax="false" data-inline="true" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/stujb/List"/>" >详细</a> </td>
+                        <td ><a data-ajax="false" data-inline="true" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/stujb/stuWrokLogList"/>" >详细</a> </td>
                     </tr>
                     <tr>
                         <td>公告</td>

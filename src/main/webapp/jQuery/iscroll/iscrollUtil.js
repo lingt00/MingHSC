@@ -25,7 +25,9 @@ function loadedIscroll(myScroll,wrapperId,pullDownId,pullUpId, pullDownAction,pu
             }
         },
         onScrollMove: function () {
-            if (this.y > 5 && !pullDownEl.className.match('flip')) {
+//            console.log(pullDownEl.querySelector('.pullDownLabel').innerHTML);
+            console.log("maxScrollY:"+this.maxScrollY+" Y:"+this.y);
+            if (this.y >  5 && !pullDownEl.className.match('flip')) {
                 pullDownEl.className = 'flip';
                 pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
                 this.minScrollY = 0;
@@ -33,7 +35,7 @@ function loadedIscroll(myScroll,wrapperId,pullDownId,pullUpId, pullDownAction,pu
                 pullDownEl.className = '';
                 pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
                 this.minScrollY = -pullDownOffset;
-            } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+            } else if (this.y < (this.maxScrollY - 40) && !pullUpEl.className.match('flip')) {
                 pullUpEl.className = 'flip';
                 pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
                 this.maxScrollY = this.maxScrollY;

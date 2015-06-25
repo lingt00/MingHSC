@@ -19,7 +19,7 @@
         <div role="main" class="container" style="padding:1px 0;">
             <div id="wrapper">
               <div id="scroller">
-                    <div id="pullDown" class="row">
+                    <div id="pullDown">
                         <span class="col-xs-2 pullDownIcon"></span><span class="col-xs-9 pullDownLabel">下拉刷新...</span>
                     </div>
                     <ul data-role="listview" id="thelist" style="margin:5px 0;padding:0;">
@@ -29,7 +29,7 @@
                         <li><a data-ajax="true" data-transition="slide"  class="ui-btn ui-icon-bullets ui-btn-icon-right" href="<c:url value="/stujb/hssmsg"/>?p=list">为什么小鑫的名字里有三个金呢?</a></li>
                         <li><a data-ajax="true" data-transition="slide"  class="ui-btn ui-icon-bullets ui-btn-icon-right" href="<c:url value="/stujb/hssmsg"/>?p=list">为什么小鑫的名字里有三个金呢?</a></li>
                     </ul>
-                    <div id="pullUp" class="row">
+                    <div id="pullUp">
                         <span class="col-xs-2 pullUpIcon"></span><span class="col-xs-9 pullUpLabel">上拉加载更多...</span>
                     </div>
               </div>

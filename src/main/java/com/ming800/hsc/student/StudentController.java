@@ -37,4 +37,9 @@ public class StudentController {
     public String List() {
         return "main/list";
     }
+
+    @RequestMapping(value = "/stujb/stuWrokLogList",method = RequestMethod.GET)
+    public  ModelAndView stuWrokLogList(){
+        return new ModelAndView("student/stuWrokLogList");
+    }
 }
