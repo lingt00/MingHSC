@@ -13,7 +13,7 @@ li{list-style:none;}
 
 .content-first table tr td a{}
 .content-first table tr td:last-child{padding:0;margin:0;}
-.content-first table tr td:last-child a{margin:0;width:80px;}
+.content-first table tr td:last-child a{width:80px;}
 
 .content-info-box{position:relative;border-top:3px solid #1BA1E2;margin:5px 0px;padding:5px;background-color: #FFFFFF;box-shadow: 3px 3px 2px #BBBBBB;border-radius:2px;}
 .content-info-box div{padding:0 10px;}
