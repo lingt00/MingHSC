@@ -8,6 +8,8 @@ li{list-style:none;}
 
 .ui-btn-left, .ui-btn-right{top: 0;}
 .ui-header-fixed .ui-btn-left, .ui-header-fixed .ui-btn-right{margin-top:0;}
+.ui-btn-left{left: 0;}
+.ui-btn-right{right: 0px;}
 
 .content-first table tr td a{}
 .content-first table tr td:last-child{padding:0;margin:0;}
