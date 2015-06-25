@@ -1,8 +1,12 @@
 package com.ming800.hsc.student;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by IntelliJ IDEA
@@ -19,8 +23,9 @@ public class StudentController {
 
 
     @RequestMapping(value = "/stujb/hssmsg",method = RequestMethod.GET)
-    public String stuMsgDetail() {
-        return "student/stuMsgDetail";
+    public ModelAndView stuMsgDetail(HttpServletRequest request,ModelMap modelMap) {
+        modelMap.put("p",request.getParameter("p"));
+        return new ModelAndView("student/stuMsgDetail",modelMap);
     }
     @RequestMapping(value = "/stujb/msgList",method = RequestMethod.GET)
     public String stuMsgList() {

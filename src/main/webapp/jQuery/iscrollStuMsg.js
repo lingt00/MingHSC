@@ -47,7 +47,7 @@ function pullUpAction () {
  */
 function loadedStuMsgList(){
     myScroll = loadedIscroll(myScroll,"wrapper","pullDown","pullUp", pullDownAction,pullUpAction );
-    console.log(myScroll);
+//    console.log(myScroll);
 }
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
