@@ -7,12 +7,12 @@
     <jsp:include page="/pages/basis/head.jsp"/>
 </head>
     <body>
-    <div id="Student-School-Message-Detail" data-role="page" data-add-back-btn="true" data-dom-cache="true" data-url="<c:url value="/stujb/hssmsg"/>">
+    <div id="Student-School-Message-Detail" data-role="page" data-add-back-btn="true" data-dom-cache="true" data-url="<c:url value="/stu/jb/MsgDetail.do"/>">
         <div data-role="header" data-position="fixed" data-theme="b" class="container" style="padding:0;">
             <a data-inline="true" data-rel="back"  data-icon="arrow-l" data-mini="true" class="ui-btn ui-btn-left ui-btn-icon-left" href="#">返回</a>
             <h1 class="ui-title">明日博·家校通</h1>
             <c:if test="${p!='list'}">
-                <a data-inline="true" data-ajax="false" data-icon="bars"   data-mini="true" class="ui-btn ui-btn-right ui-btn-icon-left" data-transition="slide" href="<c:url value="/stujb/msgList"/> ">列表</a>
+                <a data-inline="true" data-ajax="false" data-icon="bars"   data-mini="true" class="ui-btn ui-btn-right ui-btn-icon-left" data-transition="slide" href="<c:url value="/stu/jb/msgList.do"/> ">列表</a>
             </c:if>
         </div>
         <div data-role="content" class="container" style="padding:1px;">
