@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding='gb2312'?>
+<Configs>
+    <Parameters>
+        <Key>appid</Key>
+        <Value>wx487d85cec0e54b29</Value>
+    </Parameters>
+    <Parameters>
+        <Key>appsecret</Key>
+        <Value>039e0c008cc4d726d140c60211cc2e8d</Value>
+    </Parameters>
+</Configs>
