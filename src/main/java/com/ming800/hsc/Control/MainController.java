@@ -2,7 +2,8 @@ package com.ming800.hsc.Control;
 
 import com.ming800.hsc.WeChat.Utils.MessageUtil;
 import com.ming800.hsc.util.ConfigUtil;
-import com.ming800.hsc.util.JsonUtil;
+import com.ming800.hsc.util.HttpUtil;
+import com.ming800.hsc.util.WebServiceUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,12 +12,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
 public class MainController {
     @RequestMapping(value = "/main.do",method = RequestMethod.GET)
     public String main() {
+        String url = ConfigUtil.getInstance().getAppid()+ WebServiceUtil.getInstance().getValue("student.login");
+        Map<String, String> params = new HashMap<>();
+        params.put("username","ohfJbuJsHcJE5oy6DLeitt7NLTcY");
+        params.put("branchName","twwt");
+        HttpUtil.doPost(url,params);
+
         return "redirect:stu/stu.do";
     }
 
@@ -24,17 +32,14 @@ public class MainController {
     public ModelAndView studentLogin(HttpServletRequest request,ModelMap modelMap){
         String code = request.getParameter("code");
         String branchName = request.getParameter("branchName");
-        String url = "https://api.weixin.qq.com/sns/oauth2/access_token" +
-                "?appid=" + ConfigUtil.getInstance().getAppid() + "&secret=" + ConfigUtil.getInstance().getAppsecret() + "&code=" + code + "&grant_type=authorization_code";
-
-        String message = MessageUtil.sendMessage(url, null);
-        Map<String, String> map = (Map<String, String>) JsonUtil.parseJsonStringToMap(message);
-        String access_token = map.get("access_token");
+        Map<String, String> map = MessageUtil.getAccessToken(code);
         String openid = map.get("openid");
         if (StringUtils.isEmpty(openid)) {
             modelMap.put("message", "未授权或授权已失效");
             return new ModelAndView("/basis/messageShow", modelMap);
         }
+        //访问学校系统获取用户信息
+
         return new ModelAndView();
     }
 }

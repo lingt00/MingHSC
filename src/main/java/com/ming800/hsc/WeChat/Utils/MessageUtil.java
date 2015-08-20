@@ -2,6 +2,7 @@ package com.ming800.hsc.WeChat.Utils;
 
 
 import com.ming800.hsc.WeChat.Model.*;
+import com.ming800.hsc.util.ConfigUtil;
 import com.ming800.hsc.util.JsonUtil;
 import com.ming800.hsc.util.StringUtil;
 import com.thoughtworks.xstream.XStream;
@@ -234,7 +235,7 @@ public class MessageUtil {
         String url="https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token="+p_accessToken;
         HttpClient client=new HttpClient();
         PostMethod pm = new PostMethod(url);
-        pm.addRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+        pm.addRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
         pm.addRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0");
 
         Articles news = new Articles();
@@ -288,6 +289,19 @@ public class MessageUtil {
         return message;
     }
 
+    /**
+     * 根据用户code 获取用户信息
+     * @param code
+     * @return
+     */
+    public static  Map<String ,String> getAccessToken(String code){
+        String url = "https://api.weixin.qq.com/sns/oauth2/access_token" +
+                "?appid=" + ConfigUtil.getInstance().getAppid() + "&secret=" + ConfigUtil.getInstance().getAppsecret() + "&code=" + code + "&grant_type=authorization_code";
+
+        String message = sendMessage(url, null);
+        Map<String, String> map = (Map<String, String>) JsonUtil.parseJsonStringToMap(message);
+        return map;
+    }
 
     public static void main(String []args){
 

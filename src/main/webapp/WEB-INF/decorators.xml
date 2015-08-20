@@ -3,13 +3,13 @@
         <!--<pattern>/</pattern>-->
     <!--</excludes>-->
     <decorator name="wxBsDec" page="wxBsDec.jsp">
-        <pattern>/bs/*.do*</pattern>
+        <pattern>/*/bs/*.do*</pattern>
     </decorator>
     <decorator name="wxJqmDec" page="wxJqmDec.jsp">
-        <pattern>/jqm/*.do*</pattern>
+        <pattern>/*/jqm/*.do*</pattern>
     </decorator>
     <decorator name="wxJbDec" page="wxJbDec.jsp">
-        <pattern>/*jb/*.do*</pattern>
+        <pattern>/*/jb/*.do*</pattern>
     </decorator>
     <!--<decorator name ="printable" page ="contentPrintableDec.jsp"/>-->
     <!--<pattern>*/*.do*</pattern>-->

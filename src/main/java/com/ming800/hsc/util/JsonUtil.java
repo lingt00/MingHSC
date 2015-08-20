@@ -1,5 +1,7 @@
 package com.ming800.hsc.util;
 
+import com.ming800.hsc.BaseModel.ResultJson;
+import net.sf.json.JSONObject;
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -50,5 +52,15 @@ public class JsonUtil {
             e.printStackTrace();
         }
         return map;
+    }
+
+    public static ResultJson parseJsonStringToObect(String jsonString){
+        if (jsonString==null || jsonString.trim().length()<1){
+            return new  ResultJson(ResultJson.CODE_205);
+        }else {
+            JSONObject jsonobject = JSONObject.fromObject(jsonString);
+            ResultJson resultJson = (ResultJson)JSONObject.toBean(jsonobject,ResultJson.class);
+            return resultJson ;
+        }
     }
 }

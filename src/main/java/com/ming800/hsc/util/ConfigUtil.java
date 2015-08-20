@@ -56,8 +56,10 @@ public class ConfigUtil {
 		ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 		XMLUtils xml = new XMLUtils();
 		try {
-			Resource[] xmlFiles = resolver.getResources("/wxconfig.xml");
-			Resource xmlFile = xmlFiles[0];
+			Resource[] reSources = resolver.getResources("/wxconfig.xml");
+			Resource xmlFile = reSources[0];
+			xml.load(xmlFile.getFile());
+
 			appid = xml.getParameters("appid");
 			appsecret = xml.getParameters("appsecret");
 		} catch (IOException e) {
@@ -68,14 +70,13 @@ public class ConfigUtil {
 	class XMLUtils {
 		Document document;
 
-		public Document load(File xmlFile) throws FileNotFoundException {
+		public void load(File xmlFile) throws FileNotFoundException {
 			SAXReader reader = new SAXReader();
 			try {
 				document = reader.read(xmlFile);
 			} catch (DocumentException e) {
 				e.printStackTrace();
 			}
-			return document;
 		}
 		public String getParameters(String key) {
 			Element root = document.getRootElement();
@@ -89,5 +90,10 @@ public class ConfigUtil {
 			return null;
 
 		}
+	}
+
+
+	public static void main(String[] args) {
+		System.out.println(	ConfigUtil.getInstance().getAppid());
 	}
 }
