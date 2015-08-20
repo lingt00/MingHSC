@@ -1,9 +1,6 @@
 package com.ming800.hsc.Control;
 
 import com.ming800.hsc.WeChat.Utils.MessageUtil;
-import com.ming800.hsc.util.ConfigUtil;
-import com.ming800.hsc.util.HttpUtil;
-import com.ming800.hsc.util.WebServiceUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,19 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
 public class MainController {
     @RequestMapping(value = "/main.do",method = RequestMethod.GET)
     public String main() {
-        String url = ConfigUtil.getInstance().getAppid()+ WebServiceUtil.getInstance().getValue("student.login");
-        Map<String, String> params = new HashMap<>();
-        params.put("username","ohfJbuJsHcJE5oy6DLeitt7NLTcY");
-        params.put("branchName","twwt");
-        HttpUtil.doPost(url,params);
-
         return "redirect:stu/stu.do";
     }
 

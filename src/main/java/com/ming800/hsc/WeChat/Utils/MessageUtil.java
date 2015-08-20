@@ -2,9 +2,9 @@ package com.ming800.hsc.WeChat.Utils;
 
 
 import com.ming800.hsc.WeChat.Model.*;
-import com.ming800.hsc.util.ConfigUtil;
-import com.ming800.hsc.util.JsonUtil;
-import com.ming800.hsc.util.StringUtil;
+import com.ming800.hsc.BaseUtil.ConfigUtil;
+import com.ming800.hsc.BaseUtil.JsonUtil;
+import com.ming800.hsc.BaseUtil.StringUtil;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;

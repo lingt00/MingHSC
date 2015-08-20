@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2015/8/20.
  */
-public class Result {
+public class ResultMsg {
     public String id ;
     public String type ;
     public Object head ;

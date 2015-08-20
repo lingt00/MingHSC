@@ -1,6 +1,6 @@
-package com.ming800.hsc.util;
+package com.ming800.hsc.BaseUtil;
 
-import com.ming800.hsc.BaseModel.ResultJson;
+import com.ming800.hsc.BaseModel.ResultMsgJson;
 import net.sf.json.JSONObject;
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonGenerator;
@@ -54,12 +54,12 @@ public class JsonUtil {
         return map;
     }
 
-    public static ResultJson parseJsonStringToObect(String jsonString){
+    public static ResultMsgJson parseJsonStringToObject(String jsonString){
         if (jsonString==null || jsonString.trim().length()<1){
-            return new  ResultJson(ResultJson.CODE_205);
+            return new  ResultMsgJson(ResultMsgJson.CODE_205);
         }else {
             JSONObject jsonobject = JSONObject.fromObject(jsonString);
-            ResultJson resultJson = (ResultJson)JSONObject.toBean(jsonobject,ResultJson.class);
+            ResultMsgJson resultJson = (ResultMsgJson)JSONObject.toBean(jsonobject,ResultMsgJson.class);
             return resultJson ;
         }
     }

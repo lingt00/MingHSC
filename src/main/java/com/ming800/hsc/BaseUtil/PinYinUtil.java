@@ -1,4 +1,4 @@
-package com.ming800.hsc.util;
+package com.ming800.hsc.BaseUtil;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;

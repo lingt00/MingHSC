@@ -1,4 +1,4 @@
-package com.ming800.hsc.util;
+package com.ming800.hsc.BaseUtil;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -16,9 +16,20 @@ import java.util.List;
 public class ConfigUtil {
 	private static ConfigUtil instance = null;
 	
-	String appid;
-	String appsecret;
+	private String appid;
+	private String appsecret;
+	private String webService;
 
+	public String getWebService() {
+		if (webService==null || webService.trim().length()<1){
+			initServer();
+		}
+		return webService;
+	}
+
+	public void setWebService(String webService) {
+		this.webService = webService;
+	}
 
 	public String getAppid() {
 		if (appid==null || appid.trim().length()<1){
@@ -56,12 +67,13 @@ public class ConfigUtil {
 		ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 		XMLUtils xml = new XMLUtils();
 		try {
-			Resource[] reSources = resolver.getResources("/wxconfig.xml");
+			Resource[] reSources = resolver.getResources("/config.xml");
 			Resource xmlFile = reSources[0];
 			xml.load(xmlFile.getFile());
 
 			appid = xml.getParameters("appid");
 			appsecret = xml.getParameters("appsecret");
+			webService = xml.getParameters("webservice");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -94,6 +106,6 @@ public class ConfigUtil {
 
 
 	public static void main(String[] args) {
-		System.out.println(	ConfigUtil.getInstance().getAppid());
+		System.out.println(	ConfigUtil.getInstance().getWebService());
 	}
 }

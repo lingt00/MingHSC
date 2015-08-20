@@ -1,4 +1,4 @@
-package com.ming800.hsc.util;
+package com.ming800.hsc.BaseUtil;
 
 import org.springframework.context.i18n.LocaleContextHolder;
 

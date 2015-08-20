@@ -8,8 +8,8 @@
         <Key>appsecret</Key>
         <Value>039e0c008cc4d726d140c60211cc2e8d</Value>
     </Parameters>
-    <!--<Parameters>-->
-        <!--<Key>webservice</Key>-->
-        <!--<Value>http://127.0.0.1:8088/tr2/</Value>-->
-    <!--</Parameters>-->
+    <Parameters>
+        <Key>webservice</Key>
+        <Value>http://127.0.0.1:8088/tr2/</Value>
+    </Parameters>
 </Configs>
