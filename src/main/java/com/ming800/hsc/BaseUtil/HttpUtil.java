@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /** 
-* HTTP¹¤¾ßÏä 
+* HTTPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 * 
 * @author leizhimin 2009-6-19 16:36:18 
 */ 
@@ -26,49 +26,49 @@ public final class HttpUtil {
 
         private static Log log = LogFactory.getLog(HttpUtil.class);
 
-        /** 
-         * Ö´ĞĞÒ»¸öHTTP GETÇëÇó£¬·µ»ØÇëÇóÏìÓ¦µÄHTML 
-         * 
-         * @param url                 ÇëÇóµÄURLµØÖ· 
-         * @param queryString ÇëÇóµÄ²éÑ¯²ÎÊı,¿ÉÒÔÎªnull 
-         * @return ·µ»ØÇëÇóÏìÓ¦µÄHTML
-         */ 
+        /**
+         * æ‰§è¡Œä¸€ä¸ªHTTP GETè¯·æ±‚ï¼Œè¿”å›è¯·æ±‚å“åº”çš„HTML
+         *
+         * @param url                 è¯·æ±‚çš„URLåœ°å€
+         * @param queryString è¯·æ±‚çš„æŸ¥è¯¢å‚æ•°,å¯ä»¥ä¸ºnull
+         * @return è¿”å›è¯·æ±‚å“åº”çš„HTML
+         */
         public static ResultMsgJson doGet(String url, String queryString) {
                 ResultMsgJson resultJson = new ResultMsgJson(ResultMsgJson.CODE_404);
                 HttpClient httpClient = new HttpClient();
                 GetMethod postMethod = new GetMethod(url);
                 try { 
-                        if (StringUtils.isNotBlank(queryString)) 
-                                //¶ÔgetÇëÇó²ÎÊı×öÁËhttpÇëÇóÄ¬ÈÏ±àÂë£¬ºÃÏñÃ»ÓĞÈÎºÎÎÊÌâ£¬ºº×Ö±àÂëºó£¬¾Í³ÉÎª%Ê½ÑùµÄ×Ö·û´® 
+                        if (StringUtils.isNotBlank(queryString))
+                                //å¯¹getè¯·æ±‚å‚æ•°åšäº†httpè¯·æ±‚é»˜è®¤ç¼–ç ï¼Œå¥½åƒæ²¡æœ‰ä»»ä½•é—®é¢˜ï¼Œæ±‰å­—ç¼–ç åï¼Œå°±æˆä¸º%å¼æ ·çš„å­—ç¬¦ä¸²
                                 postMethod.setQueryString(URIUtil.encodeQuery(queryString));
                         httpClient.executeMethod(postMethod);
                         if (postMethod.getStatusCode() == HttpStatus.SC_OK) {
                                 String json =  postMethod.getResponseBodyAsString();
                                 resultJson = JsonUtil.parseJsonStringToObject(json);
                         } 
-                } catch (URIException e) { 
-                        log.error("Ö´ĞĞHTTP GetÇëÇóÊ±£¬±àÂë²éÑ¯×Ö·û´®¡°" + queryString + "¡±·¢ÉúÒì³££¡", e); 
-                } catch (IOException e) { 
-                        log.error("Ö´ĞĞHTTP GetÇëÇó" + url + "Ê±£¬·¢ÉúÒì³££¡", e); 
+                } catch (URIException e) {
+                        log.error("æ‰§è¡ŒHTTP Getè¯·æ±‚æ—¶ï¼Œç¼–ç æŸ¥è¯¢å­—ç¬¦ä¸²â€œ" + queryString + "â€å‘ç”Ÿå¼‚å¸¸ï¼", e);
+                } catch (IOException e) {
+                        log.error("æ‰§è¡ŒHTTP Getè¯·æ±‚" + url + "æ—¶ï¼Œå‘ç”Ÿå¼‚å¸¸ï¼", e);
                 } finally { 
                         postMethod.releaseConnection();
                 } 
                 return resultJson;
-        } 
+        }
 
-        /** 
-         * Ö´ĞĞÒ»¸öHTTP POSTÇëÇó£¬·µ»ØÇëÇóÏìÓ¦µÄHTML 
-         * 
-         * @param url         ÇëÇóµÄURLµØÖ· 
-         * @param params    ÇëÇóµÄ²éÑ¯²ÎÊı,¿ÉÒÔÎªnull 
-         * @return ·µ»ØÇëÇóÏìÓ¦µÄHTML
-         */ 
+        /**
+         * æ‰§è¡Œä¸€ä¸ªHTTP POSTè¯·æ±‚ï¼Œè¿”å›è¯·æ±‚å“åº”çš„HTML
+         *
+         * @param url         è¯·æ±‚çš„URLåœ°å€
+         * @param params    è¯·æ±‚çš„æŸ¥è¯¢å‚æ•°,å¯ä»¥ä¸ºnull
+         * @return è¿”å›è¯·æ±‚å“åº”çš„HTML
+         */
         public static ResultMsgJson doPost(String url, Map<String, String> params) {
                 ResultMsgJson resultJson = new ResultMsgJson(ResultMsgJson.CODE_404);
 
                 HttpClient httpClient = new HttpClient();
                 PostMethod postMethod = new PostMethod(url);
-                //ÉèÖÃHttp PostÊı¾İ
+                //è®¾ç½®Http Postæ•°æ®
                 if (params != null) {
                         for (Map.Entry<String, String> entry : params.entrySet()) {
                                 postMethod.addParameter(entry.getKey(),entry.getValue());
@@ -80,16 +80,20 @@ public final class HttpUtil {
                              String json =  postMethod.getResponseBodyAsString();
                              resultJson = JsonUtil.parseJsonStringToObject(json);
                         } 
-                } catch (IOException e) { 
-                        log.error("Ö´ĞĞHTTP PostÇëÇó" + url + "Ê±£¬·¢ÉúÒì³££¡", e); 
+                } catch (IOException e) {
+                        log.error("æ‰§è¡ŒHTTP Postè¯·æ±‚" + url + "æ—¶ï¼Œå‘ç”Ÿå¼‚å¸¸ï¼", e);
                 } finally { 
                         postMethod.releaseConnection();
                 } 
                 return resultJson;
-        } 
+        }
+
+        public static String getWebServiceUrl(String action){
+                return ConfigUtil.getInstance().getWebService()+WebServiceUtil.getInstance().getValue(action);
+        }
 
         public static void main(String[] args) {
-                String url = ConfigUtil.getInstance().getWebService()+ WebServiceUtil.getInstance().getValue("student.login");
+                String url = getWebServiceUrl("student.login");
                 Map<String, String> params = new HashMap<>();
                 params.put("username","ohfJbuJsHcJE5oy6DLeitt7NLTcY");
                 params.put("branchName","twwt");

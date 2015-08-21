@@ -25,10 +25,10 @@ public class MainController {
         Map<String, String> map = MessageUtil.getAccessToken(code);
         String openid = map.get("openid");
         if (StringUtils.isEmpty(openid)) {
-            modelMap.put("message", "未授权或授权已失效");
+            modelMap.put("message", "鏈巿鏉冩垨鎺堟潈澶辨晥!");
             return new ModelAndView("/basis/messageShow", modelMap);
         }
-        //访问学校系统获取用户信息
+
 
         return new ModelAndView();
     }
