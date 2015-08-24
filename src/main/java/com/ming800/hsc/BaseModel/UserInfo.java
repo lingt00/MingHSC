@@ -9,6 +9,8 @@ public class UserInfo {
     private List<ResultMsg> results ;
     private String studentId;
     private String studentUserId;
+    private String studentName;
+    private String weChatId;
 
     public List<ResultMsg> getResults() {
         return results;
@@ -34,6 +36,31 @@ public class UserInfo {
         this.studentUserId = studentUserId;
     }
 
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
     public UserInfo() {
+    }
+
+    public String getWeChatId() {
+        return weChatId;
+    }
+
+    public void setWeChatId(String weChatId) {
+        this.weChatId = weChatId;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "studentId='" + studentId + '\'' +
+                ", studentUserId='" + studentUserId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                '}';
     }
 }

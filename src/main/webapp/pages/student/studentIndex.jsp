@@ -43,22 +43,22 @@
                     <tr>
                         <td style="width:80px;">王老师</td>
                         <td> 第1题做得很好；第2题在XX知识点存在理解不到之处，请。。。</td>
-                        <td style="width:80px; "><a data-ajax="true" data-inline="true" data-transition="slide"  class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/MsgDetail.do"/>">详细</a> </td>
+                        <td style="width:80px; "><a data-ajax="false" data-inline="true" data-transition="slide"  class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/MsgDetail.do"/>">详细</a> </td>
                     </tr>
                     <tr>
                         <td>出勤</td>
                         <td> 小明:2014-06-22 英语课堂第一课时 考勤成功!剩余课时21.</td>
-                        <td ><a data-ajax="false" data-inline="true" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
+                        <td ><a data-ajax="false" data-inline="false" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
                     </tr>
                     <tr>
                         <td>公告</td>
                         <td>明天放假</td>
-                        <td ><a data-ajax="false" data-inline="true" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
+                        <td ><a data-ajax="false" data-inline="false" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
                     </tr>
                     <tr>
                         <td>消息</td>
                         <td>XX课只剩10课时,待及时续费</td>
-                        <td ><a data-ajax="false" data-inline="true" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
+                        <td ><a data-ajax="false" data-inline="false" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
                     </tr>
                     </tbody>
                 </table>
