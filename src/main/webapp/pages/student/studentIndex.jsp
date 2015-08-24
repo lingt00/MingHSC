@@ -31,12 +31,15 @@
     </script>
 </head>
 <body>
-    <div id="pageIndex" data-role="page" >
-        <div data-role="header" data-position="fixed" data-theme="b" class="container">
+    <div id="pageIndex" data-role="page">
+        <div data-role="header" data-position="fixed" data-position="inline" data-theme="a" class="container">
             <h1 class="ui-title">明日博·家校通</h1>
+            <c:if test="${requestScope.length>1}">
+                <a href="#pageTwo" data-icon="refresh" data-theme="e" data-rel="dialog" class="ui-btn-right">切换学生</a>
+            </c:if>
         </div>
 
-        <div role="main" class="ui-content">
+        <div role="main" class="ui-content" class="container">
             <div class="nva-panel nva-hidden container content-first" style="padding-left:0;padding-right:0;margin-top:20px;">
                 <table class="table table-bordered table-hover">
                     <tbody>
@@ -92,7 +95,7 @@
 
         </div>
 
-        <div data-role="footer" data-position="fixed" class="container" style="padding-left:0;padding-right:0;">
+        <div data-role="footer" data-position="fixed"  style="padding-left:0;padding-right:0;" class="container">
            <div data-role="navbar">
                 <ul class="operating row text-center linear-g nva-menu">
                     <li class="col-xs-4"><a href="#" id="menu-btn-0" class="ui-btn-active">首页</a></li>
@@ -103,17 +106,22 @@
         </div>
     </div>
 
-    <div id="pageTwo" data-role="page" data-theme="a" data-add-back-btn="true">
-        <div data-role="header"  class="container">
-            <h1>明日博·家校通</h1>
+    <div id="pageTwo" data-role="dialog" data-close-btn="none"  data-overlay-theme="b">
+        <div data-role="header"   data-theme="b" style="color:white;">
+            <h1>请选择要查看的学生</h1>
         </div>
 
-        <div data-role="content" class="container">
-              <h1>内容</h1>
-        </div>
+        <div data-role="content" >
+            <fieldset data-role="controlgroup">
+            <legend>请选择要查看的学生:</legend>
+                <c:forEach items="${requestScope.objectList}" var="object" varStatus="var">
+                    <label for="${object.studentUserId}">${object.studentName}</label>
+                    <input type="radio" name="student" id="${object.studentUserId}" value="${object.studentId}" weChatId="${object.weChatId}" <c:if test="${var.index==0}">checked</c:if>  />
+                </c:forEach>
+            </fieldset>
 
-        <div data-role="footer" data-position="fixed"  class="container" style="padding-left:0;padding-right:0;">
-           页尾
+            <a href="#pageIndex" data-role="button" data-rel="back" data-theme="e">确定</a>
+            <a href="#pageIndex" data-role="button" data-rel="back" data-theme="c">取消</a>
         </div>
     </div>
 </body>

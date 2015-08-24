@@ -51,14 +51,17 @@ public class StudentController {
         if (ResultMsgJson.CODE_200.equals(resultMsgJson.getCode()) && resultMsgJson.getUserInfoList()!=null && resultMsgJson.getUserInfoList().size()>0){
             JSONArray array = JSONArray.fromObject(resultMsgJson.getUserInfoList());
             List<UserInfo> userInfoList = JSONArray.toList(array,UserInfo.class);
-            if (userInfoList.size()==1){
-                modelMap.put("student",userInfoList.get(0));
-                return new ModelAndView("student/studentIndex",modelMap);
-            }else {
-
-                modelMap.put("objectList",userInfoList);
-                return new ModelAndView("student/studentList",modelMap);
-            }
+//            if (userInfoList.size()==1){
+//                modelMap.put("student",userInfoList.get(0));
+//                return new ModelAndView("student/studentIndex",modelMap);
+//            }else {
+//
+//                modelMap.put("objectList",userInfoList);
+//                return new ModelAndView("student/studentList",modelMap);
+//            }
+            modelMap.put("length",userInfoList.size());
+            modelMap.put("objectList",userInfoList);
+            return new ModelAndView("student/studentIndex",modelMap);
         }else if (ResultMsgJson.CODE_204.equals(resultMsgJson.getCode())){
             return new ModelAndView("redirect:"+HttpUtil.getWebServiceUrl("student.formBind"));
         }else{
