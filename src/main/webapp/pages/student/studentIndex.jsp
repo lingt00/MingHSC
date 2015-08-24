@@ -41,30 +41,31 @@
 
         <div role="main" class="ui-content" class="container">
             <div class="nva-panel nva-hidden container content-first" style="padding-left:0;padding-right:0;margin-top:20px;">
-                <table class="table table-bordered table-hover">
-                    <tbody>
-                    <tr>
-                        <td style="width:80px;">王老师</td>
-                        <td> 第1题做得很好；第2题在XX知识点存在理解不到之处，请。。。</td>
-                        <td style="width:80px; "><a data-ajax="false" data-inline="true" data-transition="slide"  class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/MsgDetail.do"/>">详细</a> </td>
-                    </tr>
-                    <tr>
-                        <td>出勤</td>
-                        <td> 小明:2014-06-22 英语课堂第一课时 考勤成功!剩余课时21.</td>
-                        <td ><a data-ajax="false" data-inline="false" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
-                    </tr>
-                    <tr>
-                        <td>公告</td>
-                        <td>明天放假</td>
-                        <td ><a data-ajax="false" data-inline="false" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
-                    </tr>
-                    <tr>
-                        <td>消息</td>
-                        <td>XX课只剩10课时,待及时续费</td>
-                        <td ><a data-ajax="false" data-inline="false" data-transition="slide" class="ui-btn ui-icon-bullets ui-btn-icon-left" href="<c:url value="/student/jb/List.do"/>" >详细</a> </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="panel panel-default">
+                    <div class="panel-heading">最新信息</div>
+                    <div class="panel-body">
+                        <p id="first-01">第1题做得很好；第2题在XX知识点存在理解不到之处，请。。。<a role="button" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">出勤</div>
+                    <div class="panel-body">
+                        <p id="first-02"><a role="button" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">公告</div>
+                    <div class="panel-body">
+                        <p id="first-03"><a role="button" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">系统消息</div>
+                    <div class="panel-body">
+                        <p id="first-04"><a role="button" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                    </div>
+                </div>
             </div>
 
             <div class="nva-panel nva-hidden container content-second main_menu">
