@@ -66,7 +66,7 @@
 
             <div class="nva-panel nva-hidden container content-second main_menu">
                 <div class="unit_row">
-                    <a class="unit ui-btn" href="#pageTwo">学习日志</a>
+                    <a class="unit ui-btn" href="#pageTwo">学员日志</a>
                     <a class="unit ui-btn" href="#pageTwo">我的课表</a>
                 </div>
                 <div class="unit_row">

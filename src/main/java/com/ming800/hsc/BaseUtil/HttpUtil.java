@@ -92,6 +92,10 @@ public final class HttpUtil {
                 return ConfigUtil.getInstance().getWebService()+WebServiceUtil.getInstance().getValue(action);
         }
 
+        public static ResultMsgJson doPostByKey(String urlKey,Map<String, String> params){
+                String url = getWebServiceUrl(urlKey);
+                return doPost(url,params);
+        }
         public static void main(String[] args) {
                 String url = getWebServiceUrl("student.login");
                 Map<String, String> params = new HashMap<>();

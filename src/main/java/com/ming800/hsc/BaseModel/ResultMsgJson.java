@@ -15,29 +15,11 @@ public class ResultMsgJson {
      * 204 用户未绑定
      */
     public String code ;
-    public List<ResultMsg> results ;
-    public String studentId;
-    public String studentUserId;
-
-    public ResultMsgJson() {
-    }
+    public List<UserInfo> userInfoList ;
 
     public ResultMsgJson(String code) {
         this.code = code;
     }
-
-    public ResultMsgJson(String code, List<ResultMsg> results) {
-        this.code = code;
-        this.results = results;
-    }
-
-    public ResultMsgJson(String code, List<ResultMsg> results, String studentId, String studentUserId) {
-        this.code = code;
-        this.results = results;
-        this.studentId = studentId;
-        this.studentUserId = studentUserId;
-    }
-
     public String getCode() {
         return code;
     }
@@ -46,27 +28,14 @@ public class ResultMsgJson {
         this.code = code;
     }
 
-    public List<ResultMsg> getResults() {
-        return results;
+    public List<UserInfo> getUserInfoList() {
+        return userInfoList;
     }
 
-    public void setResults(List<ResultMsg> results) {
-        this.results = results;
+    public void setUserInfoList(List<UserInfo> userInfoList) {
+        this.userInfoList = userInfoList;
     }
 
-    public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getStudentUserId() {
-        return studentUserId;
-    }
-
-    public void setStudentUserId(String studentUserId) {
-        this.studentUserId = studentUserId;
+    public ResultMsgJson() {
     }
 }

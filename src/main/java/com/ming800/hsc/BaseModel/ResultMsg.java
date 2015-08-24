@@ -42,4 +42,7 @@ public class ResultMsg {
     public void setBody(List<Object> body) {
         this.body = body;
     }
+
+    public ResultMsg() {
+    }
 }

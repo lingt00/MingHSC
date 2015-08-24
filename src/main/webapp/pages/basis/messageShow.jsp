@@ -19,7 +19,7 @@
     </script>
 </head>
 <body>
-<div style="background-color: #d9edf7;padding: 15px">
+<div style="background-color: #d9edf7;padding: 15px;text-align: center;">
     ${requestScope.message}
 </div>
 </body>
