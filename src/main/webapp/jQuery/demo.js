@@ -54,7 +54,7 @@
         });
 
         $(document).on("pageshow","#pageIndex",function(){
-            console.log("显示首页:"+ $(".nva-menu .ui-btn-active").length );
+            //console.log("显示首页:"+ $(".nva-menu .ui-btn-active").length );
             if( $(".nva-menu .ui-btn-active").length>0) {
                 $(".nva-panel:eq(" + $(".nva-menu .ui-btn-active").parent().index() + ")").removeClass("nva-hidden").siblings().addClass("nva-hidden");
             }else{
@@ -64,7 +64,7 @@
             $(".nva-menu .ui-btn-active").removeClass("menu-active");
         });
         $(document).on("pagehide","#pageIndex",function(){
-            console.log("隐藏首页");
+            //console.log("隐藏首页");
             $(".nva-menu .ui-btn-active").addClass("menu-active");
         });
 
