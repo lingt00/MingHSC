@@ -63,9 +63,8 @@ public final class HttpUtil {
          * @param params    请求的查询参数,可以为null
          * @return 返回请求响应的HTML
          */
-        public static ResultMsgJson doPost(String url, Map<String, String> params) {
-                ResultMsgJson resultJson = new ResultMsgJson(ResultMsgJson.CODE_404);
-
+        public static String doPost(String url, Map<String, String> params) {
+                String resultJson = ResultMsgJson.CODE_404 ;
                 HttpClient httpClient = new HttpClient();
                 PostMethod postMethod = new PostMethod(url);
                 //设置Http Post数据
@@ -77,14 +76,13 @@ public final class HttpUtil {
                 try {
                         httpClient.executeMethod(postMethod);
                         if (postMethod.getStatusCode() == HttpStatus.SC_OK) {
-                             String json =  postMethod.getResponseBodyAsString();
-                             resultJson = JsonUtil.parseJsonStringToObject(json);
-                        } 
+                             resultJson =  postMethod.getResponseBodyAsString();
+                        }
                 } catch (IOException e) {
                         log.error("执行HTTP Post请求" + url + "时，发生异常！", e);
                 } finally { 
                         postMethod.releaseConnection();
-                } 
+                }
                 return resultJson;
         }
 
@@ -92,9 +90,17 @@ public final class HttpUtil {
                 return ConfigUtil.getInstance().getWebService()+WebServiceUtil.getInstance().getValue(action);
         }
 
-        public static ResultMsgJson doPostByKey(String urlKey,Map<String, String> params){
+        public static ResultMsgJson doPostByKeyToObject(String urlKey,Map<String, String> params){
+                String json = doPostByKeyToString(urlKey, params);
+                ResultMsgJson resultMsgJson = new ResultMsgJson(ResultMsgJson.CODE_404);
+                if (!ResultMsgJson.CODE_404.equals(json)){
+                        resultMsgJson = JsonUtil.parseJsonStringToObject(json);
+                }
+                return resultMsgJson;
+        }
+        public static String doPostByKeyToString(String urlKey,Map<String, String> params){
                 String url = getWebServiceUrl(urlKey);
-                return doPost(url,params);
+                return doPost(url, params);
         }
         public static void main(String[] args) {
                 String url = getWebServiceUrl("student.login");

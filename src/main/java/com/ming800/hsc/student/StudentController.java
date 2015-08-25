@@ -47,7 +47,7 @@ public class StudentController {
         Map<String,String> params = new HashMap<>();
         params.put("branchName",branchName==null?"":branchName);
         params.put("username",openid);
-        ResultMsgJson resultMsgJson = HttpUtil.doPostByKey("student.login",params);
+        ResultMsgJson resultMsgJson = HttpUtil.doPostByKeyToObject("student.login",params);
         if (ResultMsgJson.CODE_200.equals(resultMsgJson.getCode()) && resultMsgJson.getUserInfoList()!=null && resultMsgJson.getUserInfoList().size()>0){
             JSONArray array = JSONArray.fromObject(resultMsgJson.getUserInfoList());
             List<UserInfo> userInfoList = JSONArray.toList(array,UserInfo.class);
