@@ -10,6 +10,7 @@ public class ResultMsgJson {
     public static final String CODE_204 = "204";//用户未绑定
     public static final String CODE_205 = "205";//未知错误
     public static final String CODE_404 = "404";//访问地址错误
+    public static final String CODE_504 = "504";//返回空值
     /**
      * 200 正常访问
      * 204 用户未绑定

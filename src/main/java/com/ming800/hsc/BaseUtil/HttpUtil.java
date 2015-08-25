@@ -96,6 +96,14 @@ public final class HttpUtil {
                 }
                 return resultMsgJson;
         }
+        public static Map<?,?> doPostByKeyToMap(String urlKey,Map<String, String> params){
+                String json = doPostByKeyToString(urlKey, params);
+                if (!ResultMsgJson.CODE_504.equals(json)){
+                      return JsonUtil.parseJsonStringToMap(json);
+                }else {
+                      return null ;
+                }
+        }
         public static String doPostByKeyToString(String urlKey,Map<String, String> params){
                 String url = getWebServiceUrl(urlKey);
                 return doPost(url, params);

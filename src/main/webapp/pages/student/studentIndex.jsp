@@ -41,7 +41,8 @@
             ajaxCallbackShowEle(url1,data1,$("#first-01"),function(data){
                 console.log(data);
                 var ele = $("#first-01");
-                var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/MsgDetail.do"/>\">详情</a>";
+                var params = data.id +"&studentId="+studentId+"&studentUserId="+studentUserId;
+                var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/MsgDetail.do?id="/>"+params+"\">详情</a>";
                 ele.html(data.content+a1+"<br>"+data.createDatetime+"<br>"+data.creatorName);
             });
         }

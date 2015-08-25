@@ -82,8 +82,21 @@ public class StudentController {
 
     @RequestMapping(value = "/jb/MsgDetail.do",method = RequestMethod.GET)
     public ModelAndView stuMsgDetail(HttpServletRequest request,ModelMap modelMap) {
-        modelMap.put("p",request.getParameter("p"));
-        return new ModelAndView("student/studentMsgDetail",modelMap);
+        String id = request.getParameter("id");
+        Map<String,String> params = new HashMap<>();
+        params.put("id",id);
+        Map<?,?> object = HttpUtil.doPostByKeyToMap("student.newPostInfo",params);
+        if (object!=null){
+            modelMap.put("object",object);
+            modelMap.put("p",request.getParameter("p"));
+            modelMap.put("studentId",request.getParameter("studentId"));
+            modelMap.put("studentUserId",request.getParameter("studentUserId"));
+            return new ModelAndView("student/studentMsgDetail",modelMap);
+        }else {
+            modelMap.put("message", "您访问的地址已经过期啦!");
+            return new ModelAndView("/basis/messageShow", modelMap);
+        }
+
     }
     @RequestMapping(value = "/jb/msgList",method = RequestMethod.GET)
     public String stuMsgList() {
