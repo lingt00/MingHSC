@@ -18,6 +18,7 @@
     <style type="text/css">
         .unit_row{ margin:20px auto auto auto;text-align: center;}
         .unit_row .unit{display: inline-block; height:120px; width: 120px; margin: 2px 10px 2px 10px; line-height: 100px;font-size: 18px;color:#FFF;background-color: #CCC1DA;color:#000;}
+        input[type=radio]{margin: -8px 0 0 0;}
     </style>
     <script type="text/javascript">
         $(function(){
@@ -107,22 +108,20 @@
         </div>
     </div>
 
-    <div id="pageTwo" data-role="dialog" data-close-btn="none"  data-overlay-theme="b">
-        <div data-role="header"   data-theme="b" style="color:white;">
+    <div id="pageTwo" data-role="page" data-close-btn="none"  data-overlay-theme="b" data-theme="a">
+        <div data-role="header"   data-theme="a">
             <h1>请选择要查看的学生</h1>
         </div>
 
         <div data-role="content" >
             <fieldset data-role="controlgroup">
-            <legend>请选择要查看的学生:</legend>
                 <c:forEach items="${requestScope.objectList}" var="object" varStatus="var">
                     <label for="${object.studentUserId}">${object.studentName}</label>
-                    <input type="radio" name="student" id="${object.studentUserId}" value="${object.studentId}" weChatId="${object.weChatId}" <c:if test="${var.index==0}">checked</c:if>  />
+                    <input type="radio" name="student" id="${object.studentUserId}" value="${object.studentId}" weChatId="${object.weChatId}" <c:if test="${var.index==0}">checked</c:if> />
                 </c:forEach>
             </fieldset>
-
             <a href="#pageIndex" data-role="button" data-rel="back" data-theme="e">确定</a>
-            <a href="#pageIndex" data-role="button" data-rel="back" data-theme="c">取消</a>
+            <a href="#pageIndex" data-role="button" data-rel="back" data-theme="a">取消</a>
         </div>
     </div>
 </body>
