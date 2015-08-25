@@ -45,7 +45,7 @@
                 //console.log(forword);
                 var dataUrl = forword.url;
                 var forwordPage=$.mobile.pageContainer.children(":jqmData(url='" + dataUrl + "')");
-                console.log(forwordPage);
+                //console.log(forwordPage);
                 if(forwordPage){
                     forwordPage.remove();
                 }
@@ -54,7 +54,18 @@
         });
 
         $(document).on("pageshow","#pageIndex",function(){
-            $(".nva-panel:eq("+$(".nva-menu .ui-btn-active").parent().index()+")").removeClass("nva-hidden").siblings().addClass("nva-hidden");
+            console.log("显示首页:"+ $(".nva-menu .ui-btn-active").length );
+            if( $(".nva-menu .ui-btn-active").length>0) {
+                $(".nva-panel:eq(" + $(".nva-menu .ui-btn-active").parent().index() + ")").removeClass("nva-hidden").siblings().addClass("nva-hidden");
+            }else{
+                $(".nva-panel:eq("+$(".nva-menu .menu-active").parent().index()+")").removeClass("nva-hidden").siblings().addClass("nva-hidden");
+            }
+            $(".nva-menu .menu-active").addClass("ui-btn-active");
+            $(".nva-menu .ui-btn-active").removeClass("menu-active");
+        });
+        $(document).on("pagehide","#pageIndex",function(){
+            console.log("隐藏首页");
+            $(".nva-menu .ui-btn-active").addClass("menu-active");
         });
 
         $(document).on("pageshow","#Student-School-Message-List",function(){ // 当进入页面二时

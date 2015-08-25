@@ -25,18 +25,23 @@
             $(".nva-menu a").click(function(){
                 $(".nva-panel:eq("+$(this).parent().index()+")").removeClass("nva-hidden").siblings().addClass("nva-hidden");
             });
-            $("td.td-btn").click(function(){
-                $(this).parent("tr").children("td:eq("+($(this).index()+1)+")").children("a").click();
-            });
         });
+
+        function onLoading(){
+            var student = $("input[name='student']:checked");
+            var studentId = student.val();
+            var studentUserId = student.attr("id");
+            var weChatId = student.attr("weChatId");
+            console.log(studentId+","+studentUserId+","+weChatId);
+        }
     </script>
 </head>
-<body>
+<body onload="onLoading()">
     <div id="pageIndex" data-role="page">
         <div data-role="header" data-position="fixed" data-position="inline" data-theme="a" class="container">
             <h1 class="ui-title">明日博·家校通</h1>
             <c:if test="${requestScope.length>1}">
-                <a href="#pageTwo" data-icon="refresh" data-theme="e" data-rel="dialog" class="ui-btn-right">切换学生</a>
+                <a href="#pageTwo" data-icon="refresh" data-theme="e" data-rel="dialog" class="ui-btn-right" id="changStudent">切换学生</a>
             </c:if>
         </div>
 
@@ -120,7 +125,7 @@
                     <input type="radio" name="student" id="${object.studentUserId}" value="${object.studentId}" weChatId="${object.weChatId}" <c:if test="${var.index==0}">checked</c:if> />
                 </c:forEach>
             </fieldset>
-            <a href="#pageIndex" data-role="button" data-rel="back" data-theme="e">确定</a>
+            <a href="#pageIndex" data-role="button" data-rel="back" data-theme="e" onclick="onLoading()">确定</a>
             <a href="#pageIndex" data-role="button" data-rel="back" data-theme="a">取消</a>
         </div>
     </div>
