@@ -21,11 +21,11 @@
 .face:hover{background-position:2px -28px}
 .face input{margin:0px;padding:0;}
 
-.faceContent{position:relative;margin:0px;padding:0px;height:auto;min-height:62px;max-height:302;background-color:#E9E9E9;}
+.faceContent{position:relative;margin:0px;padding:0px;height:auto;min-height:62px;max-height:302px;background-color:#E9E9E9;}
 .faceContent .faceText{margin:0px;padding:0px;height:40px;}
 .faceContent .faceText>div{float:left;height:40px;line-height:20px;font-size:14px; overflow:hidden;}
 .faceContent .faceText>div:first-child{border:1px solid #EBEBEB;padding:2px;background-color:#fff;}
 .faceContent .faceText>div:last-child{border:1px solid #EBEBEB;text-align: center;padding:0;}
 .faceContent .faceText>div:last-child button{margin:0;height:100%;width:100%;}
 .faceContent .faceImg{ margin:0;padding:0;height:20px;}
-.faceContent .faceImg div{float:left;}
+.faceContent .faceImg div{float:left;font-size:12px;font-weight:normal;height: 20px;line-height:20px;}
