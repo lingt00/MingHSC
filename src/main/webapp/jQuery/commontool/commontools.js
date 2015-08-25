@@ -15,9 +15,9 @@ serializeObject = function(form) {
 };
 
 
-function ajaxCallback(actionUrl,data,fun) {
+function ajaxCallbackShowLoader(actionUrl,data,fun) {
     if(!actionUrl){
-        alert("请先设置请求访问路径");
+        $.mobile.alert("请先设置请求访问路径");
         return;
     }
     showLoader("请稍后...");
@@ -53,6 +53,46 @@ function ajaxCallback(actionUrl,data,fun) {
                         console.log(count);
                     }else{
                         showLoader("连接服务器超时！",true);
+                    }
+
+                }
+            }
+        });
+    };
+    connectServer();
+}
+function ajaxCallbackShowEle(actionUrl,data,fun,eleObject) {
+    if(!actionUrl){
+        eleObject.html("请先设置请求访问路径!");
+        return;
+    }
+    eleObject.html("<img src='ajax-loader.gif'>加载数据中,请稍后...");
+    data = data || {};
+    var retrytimes = 5;
+    var count = 0;
+    var connectServer = function(){
+        $.ajax({
+            type: "post",
+            //contentType: "text/html; charset=utf-8",
+            url: actionUrl,
+            data: data,
+            async:false,
+            dataType: "json",
+            timeout:50000,
+            success: function (data) {
+                fun(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                eleObject.html("error:"+XMLHttpRequest+" textStatus:"+textStatus+" errorThrown:"+errorThrown);
+            },
+            complete:function(XMLHttpRequest, textStatus){
+                eleObject.html("complete:"+XMLHttpRequest+"textStatus:"+textStatus);
+                if(textStatus == "timeout"){
+                    if(count<retrytimes){
+                        count++;
+                        connectServer();
+                    }else{
+                        eleObject.html("连接服务器超时！",true);
                     }
 
                 }
