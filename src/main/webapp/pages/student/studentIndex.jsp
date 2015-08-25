@@ -34,6 +34,16 @@
             var weChatId = student.attr("weChatId");
             console.log(studentId+","+studentUserId+","+weChatId);
 
+            dwr.engine.setAsync(false);
+            //01.加载当前最新消息
+            var url1 = WebService.getWebServiceUrl('student.newPost');
+            var data1 = {'studentId':studentId,'studentUserId':studentUserId};
+            ajaxCallbackShowEle(url1,data1,$("#first-01"),function(data){
+                console.log(data);
+                var ele = $("#first-01");
+                var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/MsgDetail.do"/>\">详情</a>";
+                ele.html(data.content+a1+"<br>"+data.createDatetime+"<br>"+data.creatorName);
+            });
         }
     </script>
 </head>
@@ -47,11 +57,11 @@
         </div>
 
         <div role="main" class="ui-content" class="container">
-            <div class="nva-panel nva-hidden container content-first" style="padding-left:0;padding-right:0;margin-top:20px;">
+            <div class="nva-panel nva-hidden container content-first">
                 <div class="panel panel-default">
                     <div class="panel-heading">最新信息</div>
                     <div class="panel-body">
-                        <p id="first-01">第1题做得很好；第2题在XX知识点存在理解不到之处，请。。。<a role="button" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                        <p id="first-01">第1题做得很好；第2题在XX知识点存在理解不到之处，请。。。<a role="button" data-ajax="false" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
                     </div>
                 </div>
 

@@ -61,12 +61,12 @@ function ajaxCallbackShowLoader(actionUrl,data,fun) {
     };
     connectServer();
 }
-function ajaxCallbackShowEle(actionUrl,data,fun,eleObject) {
+function ajaxCallbackShowEle(actionUrl,data,eleObject,fun) {
     if(!actionUrl){
         eleObject.html("请先设置请求访问路径!");
         return;
     }
-    eleObject.html("<img src='ajax-loader.gif'>加载数据中,请稍后...");
+    eleObject.html("<img src='./jQuery/commontool/ajax-loader.gif' width='20' height='20'>&nbsp;&nbsp;数据加载中,请稍后...");
     data = data || {};
     var retrytimes = 5;
     var count = 0;
@@ -86,7 +86,7 @@ function ajaxCallbackShowEle(actionUrl,data,fun,eleObject) {
                 eleObject.html("error:"+XMLHttpRequest+" textStatus:"+textStatus+" errorThrown:"+errorThrown);
             },
             complete:function(XMLHttpRequest, textStatus){
-                eleObject.html("complete:"+XMLHttpRequest+"textStatus:"+textStatus);
+               // eleObject.html("complete:"+XMLHttpRequest+"textStatus:"+textStatus);
                 if(textStatus == "timeout"){
                     if(count<retrytimes){
                         count++;
