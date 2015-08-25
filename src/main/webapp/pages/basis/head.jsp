@@ -17,6 +17,11 @@
 <script type="text/javascript" src="<c:url value="/jQuery/commontool/jbtool.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/jQuery/commontool/commontools.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/jQuery/projectUtil.js"/>"></script>
+
+<script type="text/javascript" src="dwr/engine.js"></script>
+<script type="text/javascript" src="dwr/interface/webService.js"></script>
+<script type="text/javascript" src="dwr/util.js"></script>
+
 <%--<script type="text/javascript" src="<c:url value="/jQuery/iscroll/iscroll.js"/>"></script>--%>
 <%--<script type="text/javascript" src="<c:url value="/jQuery/iscroll/iscrollUtil.js"/>"></script>--%>
 <script type="text/javascript" src="<c:url value="/jQuery/demo.js"/>"></script>

@@ -12,7 +12,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /** 
@@ -33,8 +32,8 @@ public final class HttpUtil {
          * @param queryString 请求的查询参数,可以为null
          * @return 返回请求响应的HTML
          */
-        public static ResultMsgJson doGet(String url, String queryString) {
-                ResultMsgJson resultJson = new ResultMsgJson(ResultMsgJson.CODE_404);
+        public static String doGet(String url, String queryString) {
+                String result = ResultMsgJson.CODE_404 ;
                 HttpClient httpClient = new HttpClient();
                 GetMethod postMethod = new GetMethod(url);
                 try { 
@@ -43,9 +42,8 @@ public final class HttpUtil {
                                 postMethod.setQueryString(URIUtil.encodeQuery(queryString));
                         httpClient.executeMethod(postMethod);
                         if (postMethod.getStatusCode() == HttpStatus.SC_OK) {
-                                String json =  postMethod.getResponseBodyAsString();
-                                resultJson = JsonUtil.parseJsonStringToObject(json);
-                        } 
+                                result =  postMethod.getResponseBodyAsString();
+                        }
                 } catch (URIException e) {
                         log.error("执行HTTP Get请求时，编码查询字符串“" + queryString + "”发生异常！", e);
                 } catch (IOException e) {
@@ -53,7 +51,7 @@ public final class HttpUtil {
                 } finally { 
                         postMethod.releaseConnection();
                 } 
-                return resultJson;
+                return result;
         }
 
         /**
@@ -102,11 +100,11 @@ public final class HttpUtil {
                 String url = getWebServiceUrl(urlKey);
                 return doPost(url, params);
         }
-        public static void main(String[] args) {
-                String url = getWebServiceUrl("student.login");
-                Map<String, String> params = new HashMap<>();
-                params.put("username","ohfJbuJsHcJE5oy6DLeitt7NLTcY");
-                params.put("branchName","twwt");
-                HttpUtil.doPost(url, params);
-        }
+//        public static void main(String[] args) {
+//                String url = getWebServiceUrl("student.login");
+//                Map<String, String> params = new HashMap<>();
+//                params.put("username","ohfJbuJsHcJE5oy6DLeitt7NLTcY");
+//                params.put("branchName","twwt");
+//                HttpUtil.doPost(url, params);
+//        }
 }

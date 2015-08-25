@@ -33,6 +33,7 @@
             var studentUserId = student.attr("id");
             var weChatId = student.attr("weChatId");
             console.log(studentId+","+studentUserId+","+weChatId);
+
         }
     </script>
 </head>
