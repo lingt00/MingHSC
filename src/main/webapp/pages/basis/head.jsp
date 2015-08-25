@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile-1.4.5.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile.theme-1.4.5.min.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqmBootstrap/themes/Bootstrap.min.css"/>">
+<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jQMBootstrap/themes/Bootstrap.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile.structure-1.4.5.min.css"/>">
 <%--<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqmBootstrap/themes/jquery.mobile.icons.min.css"/>">--%>
 <%--<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/iscroll/scrollbar.css"/>">--%>
