@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile.theme-1.4.5.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jQMBootstrap/themes/Bootstrap.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile.structure-1.4.5.min.css"/>">
-<%--<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqmBootstrap/themes/jquery.mobile.icons.min.css"/>">--%>
+<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jQMBootstrap/themes/jquery.mobile.icons.min.css"/>">
 <%--<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/iscroll/scrollbar.css"/>">--%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/bootstrap/css/bootstrap.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/sinaface/jquery.sinaEmotion.css"/>">
