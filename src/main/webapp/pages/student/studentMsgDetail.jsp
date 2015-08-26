@@ -15,7 +15,7 @@
                 <a data-theme="e" data-ajax="false" data-icon="bars" class="ui-btn-right ui-btn-icon-left" data-transition="slide" href="<c:url value="/student/jb/msgList.do?studentId=${requestScope.studentId}&studentUserId=${requestScope.studentUserId}"/>">列表</a>
             </c:if>
         </div>
-        <div  role="main" class="ui-content"  class="container" style="padding:1px;">
+        <div  role="main" class="container ui-content" style="padding:1px;">
 
             <input type="hidden" id="postId" value="${requestScope.object.id}">
             <input type="hidden" id="studentId" value="${requestScope.studentId}">

@@ -24,7 +24,7 @@
             <a data-theme="e" data-rel="back"  data-icon="arrow-l" class="ui-btn-left ui-btn-icon-left" href="#">返回</a>
             <h1 class="ui-title">明日博·家校通</h1>
         </div>
-        <div role="main" class="container" style="padding:0;margin:0;">
+        <div role="main" class="container" style="padding:0;">
             <div id="wrapper">
               <div id="scroller">
                     <div id="pullDown">
