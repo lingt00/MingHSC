@@ -1,6 +1,7 @@
 package com.ming800.hsc.BaseUtil;
 
 import com.ming800.hsc.BaseModel.ResultMsgJson;
+import net.sf.json.JSONArray;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.URIException;
@@ -14,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
 /** 
@@ -102,6 +104,15 @@ public final class HttpUtil {
                 String json = doPostByKeyToString(urlKey, params);
                 if (!ResultMsgJson.CODE_504.equals(json)){
                       return JsonUtil.parseJsonStringToMap(json);
+                }else {
+                      return null ;
+                }
+        }
+        public static List doPostByKeyToList(String urlKey,Map<String, String> params){
+                String json = doPostByKeyToString(urlKey, params);
+                if (!ResultMsgJson.CODE_504.equals(json)){
+                        JSONArray jsonArray = JSONArray.fromObject(json);
+                      return jsonArray;
                 }else {
                       return null ;
                 }
