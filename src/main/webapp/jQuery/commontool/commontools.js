@@ -38,19 +38,19 @@ function ajaxCallbackShowLoader(actionUrl,data,fun) {
             success: function (data) {
                 hideLoader();
                 fun(data);
-                console.log("success");
+               // console.log("success");
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 hideLoader();
-                console.log("error:"+XMLHttpRequest+" textStatus:"+textStatus+" errorThrown"+errorThrown);
+               // console.log("error:"+XMLHttpRequest+" textStatus:"+textStatus+" errorThrown"+errorThrown);
             },
             complete:function(XMLHttpRequest, textStatus){
-                console.log("complete:"+XMLHttpRequest+"textStatus:"+textStatus);
+              //  console.log("complete:"+XMLHttpRequest+"textStatus:"+textStatus);
                 if(textStatus == "timeout"){
                     if(count<retrytimes){
                         count++;
                         connectServer();
-                        console.log(count);
+                       // console.log(count);
                     }else{
                         showLoader("连接服务器超时！",true);
                     }
@@ -102,6 +102,40 @@ function ajaxCallbackShowEle(actionUrl,data,eleObject,fun) {
     connectServer();
 }
 
+function ajaxCallback(actionUrl,data,retrytimes,successFun,errorFun) {
+    if(!actionUrl){
+        $.mobile.alert("亲,世界最远的距离是没有网络!");
+        return;
+    }
+    data = data || {};
+    var retryTimes = retrytimes || 5;
+    var count = 0;
+    var connectServer = function(){
+        $.ajax({
+            type: "post",
+            url: actionUrl,
+            data: data,
+            async:false,
+            dataType: "json",
+            timeout:50000,
+            success: function (data) {
+                successFun(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                errorFun(XMLHttpRequest, textStatus, errorThrown);
+            },
+            complete:function(XMLHttpRequest, textStatus){
+                if(textStatus == "timeout"){
+                    if(count<retryTimes){
+                        count++;
+                        connectServer();
+                    }
+                }
+            }
+        });
+    };
+    connectServer();
+}
 function ajaxCall(actionUrl,data,msgTitle,type,dataType,contentType,cache,async,fun) {
     if(!actionUrl){
         alert("请先设置请求地址!");

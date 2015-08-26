@@ -14,9 +14,13 @@ function mScrollTo(id){
     $("html,body").animate({scrollTop: $("#"+id).offset().top}, 1000);
 }
 
-function createReplyLi(obj,ulObj){
+function createReplyLi(obj,ulObj,type){
     var li = $("<li></li>");
-    li.addClass("odd")
+   if(type==1){
+       li.addClass("even");
+   }else{
+       li.addClass("odd");
+   }
     var user = $("<div class=\"user\" ><img class=\"img-responsive avatar_\" src=\""+obj.userUrl+"\" width=\"45px\" height=\"45px\"><span class=\"user-name\">"+obj.userName+"</span></div>");
     var content = $("<div class=\"reply-content-box\"></div>");
     var contenTime = $("<span class=\"reply-time\">"+obj.createDatetime+"</span>");

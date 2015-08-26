@@ -12,6 +12,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Map;
 
 /** 
@@ -107,6 +109,10 @@ public final class HttpUtil {
         public static String doPostByKeyToString(String urlKey,Map<String, String> params){
                 String url = getWebServiceUrl(urlKey);
                 return doPost(url, params);
+        }
+        public static String getDateTime(){
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                return format.format(Calendar.getInstance().getTime());
         }
 //        public static void main(String[] args) {
 //                String url = getWebServiceUrl("student.login");
