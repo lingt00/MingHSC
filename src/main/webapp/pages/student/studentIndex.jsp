@@ -114,7 +114,7 @@
 
         </div>
 
-        <div data-role="footer" data-position="fixed"  style="padding-left:0;padding-right:0;" class="container">
+        <div data-role="footer" data-position="fixed"  style="padding-left:0;padding-right:0;background-color:#E9E9E9;border-color:#E9E9E9;" class="container">
            <div data-role="navbar">
                 <ul class="operating row text-center linear-g nva-menu">
                     <li class="col-xs-4"><a href="#" id="menu-btn-0" class="ui-btn-active">首页</a></li>
