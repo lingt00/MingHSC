@@ -40,7 +40,7 @@
             upLoadImgs(this.files,$("#fileUploadPath").val(),function(data){
                 var imgObj = "<img src=\"" + data + "\" />";  //height=\"20\" width=\"20\"
                 $("#emoInput").append($(imgObj));
-                $("#msg-send").click();
+                //$("#msg-send").click();
             })
         });
     });
