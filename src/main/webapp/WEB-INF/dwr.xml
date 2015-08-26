@@ -14,6 +14,7 @@
       <include method="doPost"></include>
       <include method="doPostByKeyToString"></include>
       <include method="getWebServiceUrl"></include>
+      <include method="getDateTime"></include>
       <exclude method="doPostByKeyToObject"></exclude>
     </create>
 

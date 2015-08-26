@@ -8,14 +8,19 @@
 </head>
     <body>
     <div id="Student-School-Message-Detail" data-role="page" data-add-back-btn="true" data-dom-cache="true" data-url="<c:url value="/student/jb/MsgDetail.do?id=${requestScope.object.id}&studentId=${requestScope.studentId}&studentUserId=${requestScope.studentUserId}"/>">
-        <div data-role="header" data-position="fixed" data-theme="a" class="container" style="padding:0;">
+        <div data-role="header" data-position="fixed" data-position="inline" data-theme="a" class="container">
             <a data-theme="e" data-rel="back"  data-icon="arrow-l" class="ui-btn-left ui-btn-icon-left" href="#">返回</a>
             <h1 class="ui-title">明日博·家校通</h1>
             <c:if test="${p!='list'}">
                 <a data-theme="e" data-ajax="false" data-icon="bars" class="ui-btn-right ui-btn-icon-left" data-transition="slide" href="<c:url value="/student/jb/msgList.do"/> ">列表</a>
             </c:if>
         </div>
-        <div data-role="content" class="container" style="padding:1px;">
+        <div  role="main" class="ui-content"  class="container" style="padding:1px;">
+
+            <input type="hidden" id="postId" value="${requestScope.object.id}">
+            <input type="hidden" id="studentId" value="${requestScope.studentId}">
+            <input type="hidden" id="studentUserId" value="${requestScope.studentUserId}">
+            <input type="hidden" id="userId" value="${requestScope.object.creator.id}">
 
             <div class="content-info-box">
                 <div class="info-title-box">${requestScope.object.title}</div>
@@ -69,13 +74,39 @@
                </c:forEach>
 
             </ul>
+            <span id="mScrollToEle"></span>
         </div>
 
         <script type="text/javascript">
-            $(function(){
-                <%--var obj = {userUrl:"<c:url value="/images/p.jpg"/>",userName:"小明",createDatetime:"2015-06-19 11:18",content:"老师,今天作业我不会啊@!<img src=\"http://192.168.1.103/hsc/upload/images/2015516164519-pr1703.jpg\" data-ajax=\"false\">"};--%>
-                <%--createReplyLi(obj,$("#content-reply-box-stu"))--%>
-            });
+            function mSendMessage(){
+                var msg = $("#emoInput").html();
+                var postId = $("#postId").val();
+                var studentUserId = $("#studentUserId").val();
+                var userId = $("#userId").val();
+                var length = $("#content-reply-box-stu li").length;
+
+                dwr.engine.setAsync(false);
+                //01.加载当前最新消息
+                var url = WebService.getWebServiceUrl('student.savePostReply');
+                var urlData = {'userId':userId,'studentUserId':studentUserId,'postId':postId,'content':msg,'length':length};
+                ajaxCallback(url,urlData,2,function(data){
+                    if(data!=null){
+                        for(var idx in data){
+                            var reply = data[idx];
+                            var obj = {userUrl:"<c:url value="/images/p.jpg"/>",userName:reply.creatorName,createDatetime:reply.dateTime,content:reply.content};
+                            if(reply.studentUser!=null && reply.studentUser!=undefined && reply.studentUser.id==studentUserId){
+                                createReplyLi(obj,$("#content-reply-box-stu"),1);
+                            }else{
+                                createReplyLi(obj,$("#content-reply-box-stu"),0);
+                            }
+                        }
+                    }
+                },function(XMLHttpRequest, textStatus, errorThrown){
+                    var content = "消息发送失败!<br>"+"error:"+XMLHttpRequest+" textStatus:"+textStatus+" errorThrown:"+errorThrown;
+                    var obj = {userUrl:"<c:url value="/images/p.jpg"/>",userName:"系统",createDatetime:WebService.getDateTime(),content:content};
+                    createReplyLi(obj,$("#content-reply-box-stu"),1);
+                });
+            }
         </script>
 
         <div data-role="footer" data-position="fixed" class="container" style="padding:5px;background-color:#E9E9E9;border-color:#E9E9E9;color:#000000;">

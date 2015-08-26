@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<input id="fileUploadPath" value="<%=(request.getScheme()+"://"+request.getServerName()+(request.getServerPort()==80?"":(":"+request.getServerPort()))+request.getContextPath()+"/")%>upload/uploadImgJson" type="hidden" >
+<input id="fileUploadPath" value="<%=(request.getScheme()+"://"+request.getServerName()+(request.getServerPort()==80?"":(":"+request.getServerPort()))+request.getContextPath()+"/")%>upload/uploadImgLrs.do" type="hidden" >
 <div style="display: none;">
     <input id="file_upload" name="file_upload" type="file" capture="camera" accept="image/*" multiple="false">
 </div>
@@ -31,11 +31,8 @@
         });
 
         $("#msg-send").click(function(){
-            var msg = $("#emoInput").html();
-
-            var obj = {userUrl:"<c:url value="/images/p.jpg"/>",userName:"小明",createDatetime:"2015-06-19 11:18",content:msg};
-            createReplyLi(obj,$("#content-reply-box-stu"));
-            mScrollTo("faceContent");
+            mSendMessage();//引用改文件后,该方法必须重写
+            mScrollTo("mScrollToEle");
             $("#emoInput").html("");
         });
 
