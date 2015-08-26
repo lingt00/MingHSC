@@ -12,7 +12,7 @@
             <a data-theme="e" data-rel="back"  data-icon="arrow-l" class="ui-btn-left ui-btn-icon-left" href="#">返回</a>
             <h1 class="ui-title">明日博·家校通</h1>
             <c:if test="${p!='list'}">
-                <a data-theme="e" data-ajax="false" data-icon="bars" class="ui-btn-right ui-btn-icon-left" data-transition="slide" href="<c:url value="/student/jb/msgList.do"/> ">列表</a>
+                <a data-theme="e" data-ajax="false" data-icon="bars" class="ui-btn-right ui-btn-icon-left" data-transition="slide" href="<c:url value="/student/jb/msgList.do?studentId=${requestScope.studentId}&studentUserId=${requestScope.studentUserId}"/>">列表</a>
             </c:if>
         </div>
         <div  role="main" class="ui-content"  class="container" style="padding:1px;">

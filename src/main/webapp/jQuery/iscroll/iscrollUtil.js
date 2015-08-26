@@ -26,7 +26,7 @@ function loadedIscroll(myScroll,wrapperId,pullDownId,pullUpId, pullDownAction,pu
         },
         onScrollMove: function () {
 //            console.log(pullDownEl.querySelector('.pullDownLabel').innerHTML);
-            console.log("maxScrollY:"+this.maxScrollY+" Y:"+this.y);
+//            console.log("maxScrollY:"+this.maxScrollY+" Y:"+this.y);
             if (this.y >  5 && !pullDownEl.className.match('flip')) {
                 pullDownEl.className = 'flip';
                 pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
@@ -58,8 +58,8 @@ function loadedIscroll(myScroll,wrapperId,pullDownId,pullUpId, pullDownAction,pu
         }
     });
     setTimeout(function () {
-//        document.getElementById(wrapperId).style.left = '0';
-//        document.getElementById(wrapperId).style.overflow = 'visible';
+        //document.getElementById(wrapperId).style.left = '0';
+        //document.getElementById(wrapperId).style.overflow = 'visible';
     }, 800);
 
     return myScroll;

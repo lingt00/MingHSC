@@ -98,8 +98,13 @@ public class StudentController {
         }
 
     }
-    @RequestMapping(value = "/jb/msgList",method = RequestMethod.GET)
-    public String stuMsgList() {
+    @RequestMapping(value = "/jb/msgList.do",method = RequestMethod.GET)
+    public String stuMsgList(HttpServletRequest request,ModelMap modelMap) {
+        String studentId = request.getParameter("studentId");
+        String studentUserId = request.getParameter("studentUserId");
+
+        modelMap.put("studentId",studentId);
+        modelMap.put("studentUserId",studentUserId);
         return "student/studentMsgList";
     }
 

@@ -6,9 +6,9 @@
 
 /*------------- S 默认必须样式  -------------*/
 #wrapper {
-    position:absolute;
-    top:45px;
-    bottom:5px;
+    position:relative;
+    top:0;
+    bottom:0;
     overflow:auto;
 }
 
@@ -56,16 +56,19 @@
     background:#fff;
     height:40px;
     line-height:40px;
-    padding:0px 10px;
     /*border-bottom:1px solid #ccc;*/
     font-weight:bold;
     font-size:14px;
     color:#888;
 }
 #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
-    display:block; float:left;
-    width:40px; height:40px;
-    background:url(/jQuery/iscroll/pull-icon.png) 0 0 no-repeat;
+    display:block;
+    margin: 0;
+    padding: 0;
+    float:left;
+    width:40px;
+    height:40px;
+    background:url(/jQuery/iscroll/pull-icon40.png) 0 0 no-repeat;
     -webkit-background-size:40px 80px; background-size:40px 80px;
     -webkit-transition-property:-webkit-transform;
     -webkit-transition-duration:250ms;
