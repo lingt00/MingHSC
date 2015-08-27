@@ -5,6 +5,7 @@ table tbody tr td:first-child{text-align: center;}
 ul,li {padding:0;margin:0;border:0;}
 body {-webkit-user-select:none;-webkit-text-size-adjust:none; font-family:helvetica;}
 li{list-style:none;}
+div.edit:focus{z-index:1000;}
 
 .ui-btn-left, .ui-btn-right{top: 0;}
 .ui-header-fixed .ui-btn-left, .ui-header-fixed .ui-btn-right{margin-top:0;}
@@ -52,4 +53,4 @@ li{list-style:none;}
 .pr{position:relative;}
 .oh{overflow:hidden;}
 .mg10 {margin:10px 0;}
-.linear-g{background: -moz-linear-gradient(top, #fdfdfd, #f6f6f6);background: -webkit-gradient(linear,top,from(#fdfdfd),to(#f6f6f6));background: -webkit-linear-gradient(top, #fdfdfd, #f6f6f6);background: -o-linear-gradient(top, #fdfdfd, #f6f6f6);box-shadow:0 0 5px #ccc;}
+/*.linear-g{background: -moz-linear-gradient(top, #fdfdfd, #f6f6f6);background: -webkit-gradient(linear,top,from(#fdfdfd),to(#f6f6f6));background: -webkit-linear-gradient(top, #fdfdfd, #f6f6f6);background: -o-linear-gradient(top, #fdfdfd, #f6f6f6);box-shadow:0 0 5px #ccc;}*/
