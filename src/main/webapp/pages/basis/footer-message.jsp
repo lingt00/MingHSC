@@ -38,9 +38,8 @@
 
         $("#file_upload").change(function(){
             upLoadImgs(this.files,$("#fileUploadPath").val(),function(data){
-                var imgObj = "<img src=\"" + data + "\" />";  //height=\"20\" width=\"20\"
+                var imgObj = "&nbsp;<img src=\"" + data + "\" />";
                 $("#emoInput").append($(imgObj));
-                //$("#msg-send").click();
             })
         });
     });
