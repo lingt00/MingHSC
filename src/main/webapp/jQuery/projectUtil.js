@@ -21,9 +21,10 @@ function createReplyLi(obj,ulObj,type){
    }else{
        li.addClass("odd");
    }
-    var user = $("<div class=\"user\" ><img class=\"img-responsive avatar_\" src=\""+obj.userUrl+"\" width=\"45px\" height=\"45px\"><span class=\"user-name\">"+obj.userName+"</span></div>");
+    var user = $("<div class=\"user\" ><img class=\"img-responsive\" src=\""+obj.userUrl+"\" width=\"45px\" height=\"45px\"><span class=\"user-name\">"+obj.userName+"</span></div>");
     var content = $("<div class=\"reply-content-box\"></div>");
     var contenTime = $("<span class=\"reply-time\">"+obj.createDatetime+"</span>");
-    var replyContent = $("<div class=\"reply-content pr\"><span class=\"arrow\">&nbsp;</span></div>");
+    //var replyContent = $("<div class=\"reply-content\"><span class=\"arrow\">&nbsp;</span></div>");
+    var replyContent = $("<div class=\"reply-content\"></div>");
     li.append(user).append(content.append(contenTime).append(replyContent.append($("<span>"+obj.content+"</span>")))).appendTo(ulObj).trigger('create');
 }

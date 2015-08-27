@@ -44,15 +44,15 @@
                     <c:if test="${empty postReply.studentUser or postReply.studentUser.id!=requestScope.studentUserId}">
                         <li class="odd">
                             <c:if test="${not empty postReply.user}">
-                                <div class="user" ><img class="img-responsive avatar_" src="<c:url value="/images/p.jpg"/>" alt="" width="45px" height="45px"><span class="user-name">${postReply.creatorName}</span></div>
+                                <div class="user" ><img class="img-responsive" src="<c:url value="/images/p.jpg"/>" alt="" width="45px" height="45px"><span class="user-name">${postReply.creatorName}</span></div>
                             </c:if>
                             <c:if test="${not empty postReply.studentUser}">
-                                <div class="user" ><img class="img-responsive avatar_" src="<c:url value="/images/p.jpg"/>" alt="" width="45px" height="45px"><span class="user-name">${postReply.creatorName}</span></div>
+                                <div class="user" ><img class="img-responsive" src="<c:url value="/images/p.jpg"/>" alt="" width="45px" height="45px"><span class="user-name">${postReply.creatorName}</span></div>
                             </c:if>
                             <div class="reply-content-box">
                                 <span class="reply-time">${postReply.dateTime}</span>
-                                <div class="reply-content pr">
-                                    <span class="arrow">&nbsp;</span>
+                                <div class="reply-content">
+                                    <%--<span class="arrow">&nbsp;</span>--%>
                                    ${postReply.content}
                                 </div>
                             </div>
@@ -61,11 +61,11 @@
                    <%--我的评论--%>
                    <c:if test="${not empty postReply.studentUser and postReply.studentUser.id==requestScope.studentUserId}">
                        <li class="even">
-                           <div class="user" ><img class="img-responsive avatar_" src="<c:url value="/images/p.jpg"/> " alt=""><span class="user-name">${postReply.creatorName}</span></div>
+                           <div class="user" ><img class="img-responsive" src="<c:url value="/images/p.jpg"/> " alt=""><span class="user-name">${postReply.creatorName}</span></div>
                            <div class="reply-content-box">
                                <span class="reply-time">${postReply.dateTime}</span>
-                               <div class="reply-content pr">
-                                   <span class="arrow">&nbsp;</span>
+                               <div class="reply-content">
+                                   <%--<span class="arrow">&nbsp;</span>--%>
                                    ${postReply.content}
                                </div>
                            </div>
@@ -80,6 +80,9 @@
         <script type="text/javascript">
             function mSendMessage(){
                 var msg = $("#emoInput").html();
+                if(msg==null || msg==undefined || msg=="" || msg.length<1){
+                    return false ;
+                }
                 var postId = $("#postId").val();
                 var studentUserId = $("#studentUserId").val();
                 var userId = $("#userId").val();
