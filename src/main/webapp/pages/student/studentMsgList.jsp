@@ -22,7 +22,7 @@
         <input type="hidden" id="studentUserId" value="${requestScope.studentUserId}">
         <input type="hidden" id="detailPath" value="<c:url value="/student/jb/MsgDetail.do?p=list"/>">
         <div data-role="header" data-position="fixed" data-position="inline" data-theme="a" class="container">
-            <a data-theme="e" data-rel="back"  data-icon="arrow-l" class="ui-btn-left ui-btn-icon-left" href="#">返回</a>
+            <a data-theme="e" data-id="postNav" data-rel="back"  data-icon="arrow-l" class="ui-btn-left ui-btn-icon-left" href="#">返回</a>
             <h1 class="ui-title">明日博·家校通</h1>
         </div>
         <div role="main" class="container" style="padding:0;">

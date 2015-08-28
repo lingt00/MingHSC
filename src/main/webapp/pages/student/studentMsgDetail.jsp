@@ -9,7 +9,7 @@
 </head>
     <body>
     <div id="Student-School-Message-Detail" data-role="page" data-add-back-btn="true" data-dom-cache="true" data-url="<c:url value="/student/jb/MsgDetail.do?id=${requestScope.object.id}&studentId=${requestScope.studentId}&studentUserId=${requestScope.studentUserId}"/>">
-        <div data-role="header" data-position="fixed" data-position="inline" data-theme="a" class="container">
+        <div data-role="header" data-id="postNav" data-position="fixed" data-position="inline" data-theme="a" class="container">
             <a data-theme="e" data-rel="back"  data-icon="arrow-l" class="ui-btn-left ui-btn-icon-left" href="#">返回</a>
             <h1 class="ui-title">明日博·家校通</h1>
             <c:if test="${p!='list'}">

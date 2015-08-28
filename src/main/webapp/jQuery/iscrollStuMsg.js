@@ -81,6 +81,10 @@ function loadedStuMsgList(){
         pullUpAction();
     }
 }
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-document.addEventListener('DOMContentLoaded',loadedStuMsgList, false);
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+//document.addEventListener('DOMContentLoaded',loadedStuMsgList, false);
+$(function(){
+    document.getElementById("Student-School-Message-List").addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    //document.getElementById("Student-School-Message-List").addEventListener('DOMContentLoaded',loadedStuMsgList, false);
+    loadedStuMsgList();
+})(jQuery);
