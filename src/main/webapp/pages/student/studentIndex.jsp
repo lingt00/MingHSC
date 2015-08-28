@@ -111,7 +111,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">公告</div>
                     <div class="panel-body">
-                        <p id="first-03"></p>
+                        <div id="first-03" style="overflow: hidden;"></div>
                     </div>
                 </div>
                 <div class="panel panel-default">
