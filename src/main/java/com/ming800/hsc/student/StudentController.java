@@ -132,6 +132,42 @@ public class StudentController {
         return "student/studentAttendanceList";
     }
 
+    @RequestMapping(value = "/jb/newsDetail.do",method = RequestMethod.GET)
+    public ModelAndView newsDetail(HttpServletRequest request,ModelMap modelMap) {
+        String id = request.getParameter("id");
+        Map<String,String> params = new HashMap<>();
+        params.put("id",id);
+        Map<?,?> object = HttpUtil.doPostByKeyToMap("student.newsInfo",params);
+        if (object!=null){
+            modelMap.put("object",object);
+            modelMap.put("p",request.getParameter("p"));
+            modelMap.put("studentId",request.getParameter("studentId"));
+            modelMap.put("studentUserId",request.getParameter("studentUserId"));
+            return new ModelAndView("student/studentNewsDetail",modelMap);
+        }else {
+            modelMap.put("message", "您访问的地址已经过期啦!");
+            return new ModelAndView("/basis/messageShow", modelMap);
+        }
+
+    }
+
+    @RequestMapping(value = "/jb/newsList.do",method = RequestMethod.GET)
+    public String newsList(HttpServletRequest request,ModelMap modelMap) {
+        String studentId = request.getParameter("studentId");
+        String studentUserId = request.getParameter("studentUserId");
+        Map<String,String> params = new HashMap<>();
+        params.put("studentId",studentId);
+        params.put("studentUserId",studentUserId);
+        params.put("currentPage","1");
+        params.put("pageSize","5");
+        List jsonList = HttpUtil.doPostByKeyToList("student.newsList",params);
+        modelMap.put("object",jsonList);
+
+        modelMap.put("studentId",studentId);
+        modelMap.put("studentUserId",studentUserId);
+        return "student/studentNewsList";
+    }
+
 
     @RequestMapping(value = "/jb/List.do",method = RequestMethod.GET)
     public String List() {

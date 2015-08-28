@@ -60,11 +60,27 @@
                 ele.html(p1+p2+a1);
             });
         }
+        function loadFirst03(){
+            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
+            dwr.engine.setAsync(false);
+            var url1 = WebService.getWebServiceUrl('student.news');
+            ajaxCallbackShowEle(url1,data1,$("#first-03"),function(data){
+                var ele = $("#first-03");
+                var params = "?studentId="+$config.userInfo.studentId+"&studentUserId="+$config.userInfo.studentUserId;
+                var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/newsDetail.do"/>"+params+"&id="+data.id+"\">详情</a>";
+                var a2 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/newsList.do"/>"+params+"\">更多</a>";
+                var p1 = "<h3>"+data.title+"</h3>";
+                var p2 = "<h5>"+data.theDatetime+"</h5>";
+                var p3 = "<p>"+data.content+a1+"</p>";
+                ele.html(p1+p2+p3+a2);
+            });
+        }
 
         function onLoading(){
             loadConfig();
             loadFirst01();
             loadFirst02();
+            loadFirst03();
         }
     </script>
 </head>
