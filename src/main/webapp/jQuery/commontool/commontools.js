@@ -80,7 +80,11 @@ function ajaxCallbackShowEle(actionUrl,data,eleObject,fun) {
             dataType: "json",
             timeout:50000,
             success: function (data) {
-                fun(data);
+                if(data==null || data=="504"){
+                    eleObject.html("&nbsp;&nbsp;未加载到数据.亲!稍后再试...");
+                }else{
+                    fun(data);
+                }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 eleObject.html("error:"+XMLHttpRequest+" textStatus:"+textStatus+" errorThrown:"+errorThrown);

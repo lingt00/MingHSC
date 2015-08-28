@@ -115,6 +115,23 @@ public class StudentController {
         return "student/studentMsgList";
     }
 
+    @RequestMapping(value = "/jb/attendanceList.do",method = RequestMethod.GET)
+    public String attendanceList(HttpServletRequest request,ModelMap modelMap) {
+        String studentId = request.getParameter("studentId");
+        String studentUserId = request.getParameter("studentUserId");
+        Map<String,String> params = new HashMap<>();
+        params.put("studentId",studentId);
+        params.put("studentUserId",studentUserId);
+        params.put("currentPage","1");
+        params.put("pageSize","10");
+        List jsonList = HttpUtil.doPostByKeyToList("student.attendanceList",params);
+        modelMap.put("object",jsonList);
+
+        modelMap.put("studentId",studentId);
+        modelMap.put("studentUserId",studentUserId);
+        return "student/studentAttendanceList";
+    }
+
 
     @RequestMapping(value = "/jb/List.do",method = RequestMethod.GET)
     public String List() {

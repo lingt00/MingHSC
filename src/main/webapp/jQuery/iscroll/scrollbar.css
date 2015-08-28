@@ -47,6 +47,28 @@
     height: 60px;
     line-height: 40px;
 }
+
+#scroller div.ulDiv{
+    margin: 0;
+    padding:0;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+    background-color:#fafafa;
+    font-size:14px;
+    width: 100%;
+}
+#scroller div.ulDiv div.liDiv{
+    display: block;
+    min-height: 60px;
+    border:1px solid #fcfcfc;
+    padding:.6em;
+    background-color:#fcfcfc;
+    border-radius:4px;
+    box-shadow:0 0 5px #cccccc;
+    margin: 5px 10px;
+}
+
+
 /**
  *
  * 下拉样式 Pull down styles

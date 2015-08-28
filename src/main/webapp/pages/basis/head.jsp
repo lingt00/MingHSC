@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile-1.4.5.min.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile.theme-1.4.5.min.css"/>">
+<%--<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile.theme-1.4.5.min.css"/>">--%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jQMBootstrap/themes/Bootstrap.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jqm/jquery.mobile.structure-1.4.5.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jQMBootstrap/themes/jquery.mobile.icons.min.css"/>">

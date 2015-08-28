@@ -27,24 +27,44 @@
             });
         });
 
-        function onLoading(){
+        //全局变量
+        var $config= {userInfo:{studentId:'',studentUserId:'',weChatId:''}} ;
+        function loadConfig(){
             var student = $("input[name='student']:checked");
-            var studentId = student.val();
-            var studentUserId = student.attr("id");
-            var weChatId = student.attr("weChatId");
-            console.log(studentId+","+studentUserId+","+weChatId);
-
+            $config.userInfo.studentId = student.val();
+            $config.userInfo.studentUserId = student.attr("id");
+            $config.userInfo.weChatId = student.attr("weChatId");
+        }
+        //加载最新消息
+        function loadFirst01(){
+            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
             dwr.engine.setAsync(false);
-            //01.加载当前最新消息
             var url1 = WebService.getWebServiceUrl('student.newPost');
-            var data1 = {'studentId':studentId,'studentUserId':studentUserId};
             ajaxCallbackShowEle(url1,data1,$("#first-01"),function(data){
-                console.log(data);
                 var ele = $("#first-01");
-                var params = data.id +"&studentId="+studentId+"&studentUserId="+studentUserId;
+                var params = data.id +"&studentId="+$config.userInfo.studentId+"&studentUserId="+$config.userInfo.studentUserId;
                 var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/MsgDetail.do?id="/>"+params+"\">详情</a>";
                 ele.html(data.content+a1+"<br>"+data.createDatetime+"<br>"+data.creatorName);
             });
+        }
+        function loadFirst02(){
+            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
+            dwr.engine.setAsync(false);
+            var url1 = WebService.getWebServiceUrl('student.attendance');
+            ajaxCallbackShowEle(url1,data1,$("#first-02"),function(data){
+                var ele = $("#first-02");
+                var params = "?studentId="+$config.userInfo.studentId+"&studentUserId="+$config.userInfo.studentUserId;
+                var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/attendanceList.do"/>"+params+"\">更多</a>";
+                var p1 = "<p>"+data.clazzInstance.course.name+"&nbsp;"+data.clazzInstance.name+"&nbsp;&nbsp;"+data.dateTime+"&nbsp;"+data.student.name+"&nbsp;考勤成功("+data.status+")。</p>";
+                var p2 = "<p>消耗课时:"+data.teachHour+"H,剩余课时:"+data.message+"H.</p>";
+                ele.html(p1+p2+a1);
+            });
+        }
+
+        function onLoading(){
+            loadConfig();
+            loadFirst01();
+            loadFirst02();
         }
     </script>
 </head>
