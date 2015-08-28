@@ -25,7 +25,7 @@ function pullDownAction () {
                 var el =  $("#theList");
                 for(var index in dataList){
                     var data = dataList[index];
-                    var p1 = "<p>"+data.clazzInstance.course.name+"&nbsp;"+data.clazzInstance.name+"&nbsp;&nbsp;"+data.dateTime+"&nbsp;"+data.student.name+"&nbsp;考勤成功("+data.status+")。</p>";
+                    var p1 = "<p>["+data.mode+"]&nbsp;"+data.clazzInstance.course.name+"&nbsp;"+data.clazzInstance.name+"&nbsp;&nbsp;"+data.dateTime+"&nbsp;"+data.student.name+"&nbsp;考勤成功("+data.status+")。</p>";
                     var p2 = "<p>消耗课时:"+data.teachHour+"H,剩余课时:"+data.message+"H.</p>";
                     var li = $("<div class=\"liDiv\">"+p1+p2+"</div>");
                     el.append(li);
@@ -57,7 +57,7 @@ function pullUpAction () {
                 var el =  $("#theList");
                 for(var index in dataList){
                     var data = dataList[index];
-                    var p1 = "<p>"+data.clazzInstance.course.name+"&nbsp;"+data.clazzInstance.name+"&nbsp;&nbsp;"+data.dateTime+"&nbsp;"+data.student.name+"&nbsp;考勤成功("+data.status+")。</p>";
+                    var p1 = "<p>["+data.mode+"]&nbsp;"+data.clazzInstance.course.name+"&nbsp;"+data.clazzInstance.name+"&nbsp;&nbsp;"+data.dateTime+"&nbsp;"+data.student.name+"&nbsp;考勤成功("+data.status+")。</p>";
                     var p2 = "<p>消耗课时:"+data.teachHour+"H,剩余课时:"+data.message+"H.</p>";
                     var li = $(p1+p2);
                     el.append(li);

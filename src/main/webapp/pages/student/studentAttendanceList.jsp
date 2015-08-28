@@ -32,7 +32,7 @@
                     <div class="ulDiv" id="theList">
                         <c:forEach items="${requestScope.object}" var="data">
                             <div class="liDiv">
-                                <p>${data.clazzInstance.course.name}&nbsp;${data.clazzInstance.name}&nbsp;&nbsp;${data.dateTime}&nbsp;${data.student.name}&nbsp;考勤成功(${data.status})。</p>
+                                <p>[${data.mode}]&nbsp;${data.clazzInstance.course.name}&nbsp;${data.clazzInstance.name}&nbsp;&nbsp;${data.dateTime}&nbsp;${data.student.name}&nbsp;考勤成功(${data.status})。</p>
                                 <p>消耗课时:${data.teachHour}H,剩余课时:${data.message}H.</p>
                             </div>
                         </c:forEach>

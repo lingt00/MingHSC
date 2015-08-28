@@ -55,7 +55,7 @@
                 var ele = $("#first-02");
                 var params = "?studentId="+$config.userInfo.studentId+"&studentUserId="+$config.userInfo.studentUserId;
                 var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/attendanceList.do"/>"+params+"\">更多</a>";
-                var p1 = "<p>"+data.clazzInstance.course.name+"&nbsp;"+data.clazzInstance.name+"&nbsp;&nbsp;"+data.dateTime+"&nbsp;"+data.student.name+"&nbsp;考勤成功("+data.status+")。</p>";
+                var p1 = "<p>["+data.mode+"]&nbsp;"+data.clazzInstance.course.name+"&nbsp;"+data.clazzInstance.name+"&nbsp;&nbsp;"+data.dateTime+"&nbsp;"+data.student.name+"&nbsp;考勤成功("+data.status+")。</p>";
                 var p2 = "<p>消耗课时:"+data.teachHour+"H,剩余课时:"+data.message+"H.</p>";
                 ele.html(p1+p2+a1);
             });
