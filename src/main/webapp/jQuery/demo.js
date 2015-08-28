@@ -25,16 +25,16 @@
     });
 
     $(document).on("pageinit",function(event){
-//        console.log("pageinit事件id:"+event.target.id);
-//        var pageId = event.target.id ;
-//        if(pageId == "Student-School-Message-List"){
-//            console.log("pageinit事件,添加监听器");
-//            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-//            document.addEventListener('DOMContentLoaded',loadedStuMsgList, false);
-//            $.getScript("http://localhost/hsc/jQuery/iscrollStuMsg.js",function(){
-//                console.log("pagebeforechange事件,加载js成功");
-//            });
-//        }
+        //console.log("pageinit事件id:"+event.target.id);
+        //var pageId = event.target.id ;
+        //if(pageId == "Student-School-Message-List"){
+        //    console.log("pageinit事件,添加监听器");
+        //    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        //    document.addEventListener('DOMContentLoaded',loadedStuMsgList, false);
+        //    $.getScript("http://localhost/hsc/jQuery/iscrollStuMsg.js",function(){
+        //        console.log("pagebeforechange事件,加载js成功");
+        //    });
+        //}
     });
 
     $.fn.subpage = function(options) {
@@ -54,7 +54,6 @@
         });
 
         $(document).on("pageshow","#pageIndex",function(){
-            //console.log("显示首页:"+ $(".nva-menu .ui-btn-active").length );
             if( $(".nva-menu .ui-btn-active").length>0) {
                 $(".nva-panel:eq(" + $(".nva-menu .ui-btn-active").parent().index() + ")").removeClass("nva-hidden").siblings().addClass("nva-hidden");
             }else{
@@ -64,12 +63,18 @@
             $(".nva-menu .ui-btn-active").removeClass("menu-active");
         });
         $(document).on("pagehide","#pageIndex",function(){
-            //console.log("隐藏首页");
             $(".nva-menu .ui-btn-active").addClass("menu-active");
         });
 
-        $(document).on("pageshow","#Student-School-Message-List",function(){ // 当进入页面二时
-
+        $(document).on("pageshow","#Student-School-Message-List",function(){
+            //console.log("显示页面");
+            //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+            //document.addEventListener('DOMContentLoaded',loadedStuMsgList, false);
+        });
+        $(document).on("pagehide","#Student-School-Message-List",function(){
+            //console.log("隐藏页面");
+            //document.removeEventListener('touchmove', function (e) { e.preventDefault(); });
+            //document.removeEventListener('DOMContentLoaded',loadedStuMsgList);
         });
     };
 })(jQuery);
