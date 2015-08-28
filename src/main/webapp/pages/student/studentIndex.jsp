@@ -82,26 +82,26 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">最新信息</div>
                     <div class="panel-body">
-                        <p id="first-01">第1题做得很好；第2题在XX知识点存在理解不到之处，请。。。<a role="button" data-ajax="false" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                        <p id="first-01"></p>
                     </div>
                 </div>
 
                 <div class="panel panel-default">
                     <div class="panel-heading">出勤</div>
                     <div class="panel-body">
-                        <p id="first-02"><a role="button" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                        <p id="first-02"></p>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">公告</div>
                     <div class="panel-body">
-                        <p id="first-03"><a role="button" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                        <p id="first-03"></p>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">系统消息</div>
                     <div class="panel-body">
-                        <p id="first-04"><a role="button" class="btn btn-info btn-xs" style="font-size:10px;" href="<c:url value="/student/jb/MsgDetail.do"/>">详情</a></p>
+                        <p id="first-04"></p>
                     </div>
                 </div>
             </div>

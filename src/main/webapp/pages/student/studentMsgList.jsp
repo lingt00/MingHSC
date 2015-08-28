@@ -5,6 +5,7 @@
 <head>
     <title>Student-School-Message-List</title>
     <jsp:include page="/pages/basis/head.jsp"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/sinaface/jquery.sinaEmotion.css"/>">
     <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/iscroll/scrollbar.css"/>">
     <script type="text/javascript" src="<c:url value="/jQuery/iscroll/iscroll.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/jQuery/iscroll/iscrollUtil.js"/>"></script>
@@ -32,7 +33,7 @@
                     </div>
                     <ul data-role="listview" id="thelist" style="margin:5px 0;padding:0;">
                         <c:forEach items="${requestScope.object}" var="post">
-                            <li><a data-ajax="true" data-transition="slide"  class="ui-btn ui-icon-bullets ui-btn-icon-right" href="">${post.createDatetime}&nbsp;${post.title}</a></li>
+                            <li><a data-ajax="true" data-transition="slide"  class="ui-btn ui-icon-bullets ui-btn-icon-right" href="<c:url value="/student/jb/MsgDetail.do?p=list&id=${post.id}&studentId=${requestScope.studentId}&studentUserId=${requestScope.studentUserId}"/>">${post.createDatetime}&nbsp;${post.title}</a></li>
                         </c:forEach>
                     </ul>
                     <div id="pullUp">

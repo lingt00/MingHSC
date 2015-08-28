@@ -3,8 +3,9 @@
 <%@ include file="/common/taglibs.jsp" %>
 <html>
 <head>
-    <title>Student-School-Message</title>
+    <title>Student-School-Message-Detail</title>
     <jsp:include page="/pages/basis/head.jsp"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/sinaface/jquery.sinaEmotion.css"/>">
 </head>
     <body>
     <div id="Student-School-Message-Detail" data-role="page" data-add-back-btn="true" data-dom-cache="true" data-url="<c:url value="/student/jb/MsgDetail.do?id=${requestScope.object.id}&studentId=${requestScope.studentId}&studentUserId=${requestScope.studentUserId}"/>">

@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/jQMBootstrap/themes/jquery.mobile.icons.min.css"/>">
 <%--<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/iscroll/scrollbar.css"/>">--%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/bootstrap/css/bootstrap.min.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/sinaface/jquery.sinaEmotion.css"/>">
+<%--<link rel="stylesheet" type="text/css" href="<c:url value="/jQuery/sinaface/jquery.sinaEmotion.css"/>">--%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/style/demo.css"/>">
 
 
