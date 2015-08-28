@@ -15,8 +15,8 @@ div.content-info-box div.info-attachment-box .tint{margin-right:20px;}
 div.content-info-box div.info-author-box{margin: 5px;text-align: right;color: #999999;}
 
 
-ul.content-reply-box{width:100%;overflow:hidden;}
-ul.content-reply-box li{width:100%;overflow:hidden;margin-bottom:2em;}
+ul.content-reply-box{width:100%;overflow:hidden;margin:0;padding: 0;}
+ul.content-reply-box li{width:100%;overflow:hidden;margin-bottom:2em;list-style: none;}
 ul.content-reply-box li div.user img{width:45px;height:45px;border-radius:50%;margin-top:15px;}
 ul.content-reply-box li div.user span.user-name{color:#999;margin-top:5px;display:block;text-align:center;width:50px;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow: hidden;font-size:12px;}
 ul.content-reply-box li div.reply-content-box div.reply-content{border:1px solid #fcfcfc;padding:.6em;background-color:#fcfcfc;border-radius:4px;box-shadow:0 0 5px #cccccc;}
