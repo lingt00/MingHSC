@@ -28,12 +28,21 @@
         });
 
         //全局变量
-        var $config= {userInfo:{studentId:'',studentUserId:'',weChatId:''}} ;
+        var $config= {userInfo:{studentId:'',studentUserId:'',weChatId:''},url:{link1:'wx.second01',link2:'wx.second03',link3:'wx.second3',link4:'wx.second4',link5:'wx.second5',link6:'wx.second6'}} ;
         function loadConfig(){
             var student = $("input[name='student']:checked");
             $config.userInfo.studentId = student.val();
             $config.userInfo.studentUserId = student.attr("id");
             $config.userInfo.weChatId = student.attr("weChatId");
+        }
+        function loadLink(){
+            var params = "<c:url value="/redirect.do"/>?studentId="+ $config.userInfo.studentId+"&studentUserId="+$config.userInfo.studentUserId+"&qm=";
+            $("#second01").attr("href", params+$config.url.link1);
+            $("#second02").attr("href", params+$config.url.link2);
+            $("#second03").attr("href", params+$config.url.link3);
+            $("#second04").attr("href", params+$config.url.link4);
+            $("#second05").attr("href", params+$config.url.link5);
+            $("#second06").attr("href", params+$config.url.link6);
         }
         //加载最新消息
         function loadFirst01(){
@@ -78,6 +87,7 @@
 
         function onLoading(){
             loadConfig();
+            loadLink();
             loadFirst01();
             loadFirst02();
             loadFirst03();
@@ -124,12 +134,16 @@
 
             <div class="nva-panel nva-hidden container content-second main_menu">
                 <div class="unit_row">
-                    <a class="unit ui-btn" href="#pageTwo">学员日志</a>
-                    <a class="unit ui-btn" href="#pageTwo">我的课表</a>
+                    <a class="unit" id="second01" data-ajax="false" href="">学员日志</a>
+                    <a class="unit" id="second02" data-ajax="false" href="">班级日志</a>
                 </div>
                 <div class="unit_row">
-                    <a class="unit ui-btn" href="#pageTwo">我的账单</a>
-                    <a class="unit ui-btn" href="#pageTwo">学费消耗</a>
+                    <a class="unit" id="second03" data-ajax="false" href="">学员作业</a>
+                    <a class="unit" id="second04" data-ajax="false" href="">账单记录</a>
+                </div>
+                <div class="unit_row">
+                    <a class="unit" id="second05" data-ajax="false" href="">剩余学时</a>
+                    <a class="unit" id="second06" data-ajax="false" href="">我的课表</a>
                 </div>
             </div>
 
