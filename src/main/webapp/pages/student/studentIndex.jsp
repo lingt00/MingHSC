@@ -84,6 +84,20 @@
                 ele.html(p1+p2+p3+a2);
             });
         }
+        function loadFirst04(){
+            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
+            dwr.engine.setAsync(false);
+            var url1 = WebService.getWebServiceUrl('student.sysLogList');
+            ajaxCallbackShowEle(url1,data1,$("#first-04"),function(dataList){
+                var ele = $("#first-04");
+                var p = "";
+                for(var idx in dataList){
+                    var data = dataList[idx];
+                    p += "<p>"+data.message+"</p>";
+                }
+                ele.html(p);
+            });
+        }
 
         function onLoading(){
             loadConfig();
@@ -91,6 +105,7 @@
             loadFirst01();
             loadFirst02();
             loadFirst03();
+            loadFirst04();
         }
     </script>
 </head>
@@ -127,7 +142,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">系统消息</div>
                     <div class="panel-body">
-                        <p id="first-04"></p>
+                        <div id="first-04"></div>
                     </div>
                 </div>
             </div>
