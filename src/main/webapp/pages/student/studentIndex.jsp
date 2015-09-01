@@ -107,6 +107,33 @@
             loadFirst03();
             loadFirst04();
         }
+
+        function saveOrUpdate(idEle){
+            var urlData = $("#"+idEle).serializeArray();
+            //student.saveOrUpdate
+            dwr.engine.setAsync(false);
+            var url1 = WebService.getWebServiceUrl('student.saveOrUpdate');
+            ajaxCallback(url1,urlData,2,function(data){
+                if(data==200){
+                    window.location.reload();
+                    return true ;
+                }else{
+                    return false;
+                }
+            },function(){
+                return false ;
+            });
+        }
+        function closeWin(){
+            var userAgent = navigator.userAgent;
+            if (userAgent.indexOf("Firefox") != -1 || userAgent.indexOf("Presto") != -1) {
+                window.location.replace("about:blank");
+            } else {
+                window.opener = null;
+                window.open("", "_self");
+                window.close();
+            }
+        }
     </script>
 </head>
 <body onload="onLoading()">
@@ -165,15 +192,27 @@
             <div class="nva-panel nva-hidden container" style="padding-left:0;padding-right:0;">
                 <ul data-role="listview" data-inset="true" style="margin-top:20px"  data-split-icon="arrow-r" data-split-theme="d">
                     <li data-role="list-divider">我家Bady</li>
-                    <li><a href="#pageTwo">李珊珊<span class="ui-li-aside">女,生日:09-02</span></a> <a href="#pageTwo">详细</a> </li>
-                    <li><a href="#pageTwo">李鑫鑫<span class="ui-li-aside">男,生日:09-02</span></a> <a href="#pageTwo">详细</a> </li>
-                    <%--<li><a data-role="button" href="#pageTwo" style="text-align:center;">新增</a></li>--%>
+                    <c:forEach items="${requestScope.objectList}" var="object" varStatus="var">
+                        <li>
+                            <a href="javascript:void(0);">
+                                ${object.studentName}<span class="ui-li-aside"><c:if test="${object.sex==1}">男</c:if><c:if test="${object.sex==2}">女</c:if>&nbsp;&nbsp;<c:if test="${not empty object.birth && object.birth!=''}">生日:${object.birth}</c:if>　</span>
+                            </a>
+                            <a href="#info-${object.studentId}" data-rel="dialog" data-icon="edit">修改</a>
+                        </li>
+                    </c:forEach>
                 </ul>
                 <ul data-role="listview" data-inset="true" style="margin-top:20px" data-split-icon="arrow-r" data-split-theme="d">
                     <li data-role="list-divider">联系方式</li>
-                    <li><a href="#pageTwo">爸爸：<span>18961433121</span></a> <a href="#pageTwo">详细</a></li>
-                    <li><a href="#pageTwo">妈妈：<span>15235432222</span></a> <a href="#pageTwo">详细</a></li>
-                    <%--<li><a data-role="button" href="#pageTwo" style="text-align:center;">添加联系方式</a></li>--%>
+                    <c:forEach items="${requestScope.objectList}" var="object">
+                        <li>
+                            <a href="javascript:void(0);">
+                                <h3>${object.studentName}</h3>
+                                <p style="font-size: 14px;">联系人1：<span>${object.phone }</span>&nbsp;&nbsp;<span>${object.contactMan}</span></p>
+                                <p style="font-size: 14px;">联系人2：<span>${object.phone2}</span>&nbsp;&nbsp;<span>${object.contactMan2}</span></p>
+                            </a>
+                            <a href="#link-${object.studentId}" data-rel="dialog" data-icon="edit">修改</a>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
 
@@ -204,6 +243,67 @@
             </fieldset>
             <a href="#pageIndex" data-role="button" data-rel="back" data-theme="e" onclick="onLoading()">确定</a>
             <a href="#pageIndex" data-role="button" data-rel="back" data-theme="a">取消</a>
+        </div>
+    </div>
+    <c:forEach items="${requestScope.objectList}" var="object">
+        <div id="info-${object.studentId}" data-role="dialog" data-close-btn="right"  data-overlay-theme="b" data-theme="a">
+            <div data-role="header"   data-theme="a">
+                <h1>修改学生信息</h1>
+            </div>
+            <div data-role="content" >
+                <h3>${object.studentName}</h3>
+                <form id="info-${object.studentId}-form" >
+                    <input type="hidden" name="studentId" value="${object.studentId}">
+                    <input type="hidden" name="type" value="info">
+                    <fieldset data-role="controlgroup">
+                        <legend>生日</legend>
+                        <%--<label for="birth-${object.studentId}">生日</label>--%>
+                        <input type="date" name="birth" id="birth-${object.studentId}" value="${object.birth}">
+                    </fieldset>
+                    <fieldset data-role="controlgroup">
+                        <legend>性别</legend>
+                        <input type="radio" name="sex" id="sex1-${object.studentId}" value="1"><label for="sex1-${object.studentId}">男</label>
+                        <input type="radio" name="sex" id="sex2-${object.studentId}" value="2"><label for="sex2-${object.studentId}">女</label>
+                    </fieldset>
+                </form>
+                <a href="javascript:void (0);" data-role="button" data-theme="e" onclick="saveOrUpdate('info-${object.studentId}-form')">确定</a>
+                <a href="#pageIndex" data-role="button" data-rel="back" data-theme="a">取消</a>
+            </div>
+        </div>
+
+        <div id="link-${object.studentId}" data-role="dialog" data-close-btn="right"  data-overlay-theme="b" data-theme="a">
+            <div data-role="header"   data-theme="a">
+                <h1>修改联系人${object.studentName}</h1>
+            </div>
+            <div data-role="content" >
+                <h3>${object.studentName}</h3>
+                <form id="link-${object.studentId}-form" >
+                    <input type="hidden" name="studentId" value="${object.studentId}">
+                    <input type="hidden" name="type" value="link">
+                    <div data-role="fieldcontain">
+                        <legend>联系人1</legend>
+                        <label for="contactMan-${object.studentId}">身份</label> <input type="text" name="contactMan" id="contactMan-${object.studentId}" value="${object.contactMan}">
+                        <label for="phone-${object.studentId}">电话</label> <input type="phone" name="phone" id="phone-${object.studentId}" value="${object.phone}">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <legend>联系人2</legend>
+                        <label for="contactMan2-${object.studentId}">身份</label> <input type="text" name="contactMan2" id="contactMan2-${object.studentId}" value="${object.contactMan2}">
+                        <label for="phone2-${object.studentId}">电话</label> <input type="phone" name="phone2" id="phone2-${object.studentId}" value="${object.phone2}">
+                    </div>
+
+                </form>
+                <a href="javascript:void (0);" data-role="button" data-theme="e" onclick="saveOrUpdate('link-${object.studentId}-form')">确定</a>
+                <a href="#pageIndex" data-role="button" data-rel="back" data-theme="a">取消</a>
+            </div>
+        </div>
+    </c:forEach>
+
+    <div id="closeWin" data-role="dialog" data-close-btn="none"  data-overlay-theme="b" data-theme="a">
+        <div data-role="header"   data-theme="a">
+            <h1>反馈结果</h1>
+        </div>
+        <div data-role="content" >
+            <span>学生信息已被更新,请关闭页面重新打开!</span>
         </div>
     </div>
 </body>
