@@ -1,5 +1,6 @@
 package com.ming800.hsc.Control;
 
+import com.ming800.hsc.BaseUtil.ConfigUtil;
 import com.ming800.hsc.BaseUtil.HttpUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class MainController {
     @RequestMapping(value = "/main.do",method = RequestMethod.GET)
     public String main() {
-        return "redirect:student/weChat.do";
+        return "redirect:"+ ConfigUtil.getInstance().getWebService();
     }
     @RequestMapping(value = "/redirect.do",method = RequestMethod.GET)
     public Object redirect(HttpServletRequest request,ModelMap modelMap) {
