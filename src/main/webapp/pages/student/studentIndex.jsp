@@ -262,8 +262,8 @@
                     </fieldset>
                     <fieldset data-role="controlgroup">
                         <legend>性别</legend>
-                        <input type="radio" name="sex" id="sex1-${object.studentId}" value="1"><label for="sex1-${object.studentId}">男</label>
-                        <input type="radio" name="sex" id="sex2-${object.studentId}" value="2"><label for="sex2-${object.studentId}">女</label>
+                        <input type="radio" name="sex" id="sex1-${object.studentId}" value="1" <c:if test="${object.sex==1}">checked</c:if> ><label for="sex1-${object.studentId}">男</label>
+                        <input type="radio" name="sex" id="sex2-${object.studentId}" value="2" <c:if test="${object.sex==2}">checked</c:if>><label for="sex2-${object.studentId}">女</label>
                     </fieldset>
                 </form>
                 <a href="javascript:void (0);" data-role="button" data-theme="e" onclick="saveOrUpdate('info-${object.studentId}-form')">确定</a>
@@ -282,12 +282,12 @@
                     <input type="hidden" name="type" value="link">
                     <div data-role="fieldcontain">
                         <legend>联系人1</legend>
-                        <label for="contactMan-${object.studentId}">身份</label> <input type="text" name="contactMan" id="contactMan-${object.studentId}" value="${object.contactMan}">
+                        <label for="contactMan-${object.studentId}">身份</label> <input type="text" name="contactMan" id="contactMan-${object.studentId}" value="${object.contactMan}" >
                         <label for="phone-${object.studentId}">电话</label> <input type="phone" name="phone" id="phone-${object.studentId}" value="${object.phone}">
                     </div>
                     <div data-role="fieldcontain">
                         <legend>联系人2</legend>
-                        <label for="contactMan2-${object.studentId}">身份</label> <input type="text" name="contactMan2" id="contactMan2-${object.studentId}" value="${object.contactMan2}">
+                        <label for="contactMan2-${object.studentId}">身份</label> <input type="text" name="contactMan2" id="contactMan2-${object.studentId}" value="${object.contactMan2}"/>
                         <label for="phone2-${object.studentId}">电话</label> <input type="phone" name="phone2" id="phone2-${object.studentId}" value="${object.phone2}">
                     </div>
 
