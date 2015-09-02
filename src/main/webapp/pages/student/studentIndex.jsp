@@ -28,7 +28,7 @@
         });
 
         //全局变量
-        var $config= {userInfo:{studentId:'',studentUserId:'',weChatId:''},url:{link1:'wx.second01',link2:'wx.second03',link3:'wx.second3',link4:'wx.second4',link5:'wx.second5',link6:'wx.second6'}} ;
+        var $config= {userInfo:{studentId:'',studentUserId:'',weChatId:''},url:{link1:'wx.second01',link2:'wx.second02',link3:'wx.second03',link4:'wx.second04',link5:'wx.second05',link6:'wx.second06',addStudent:'student.formBind'}} ;
         function loadConfig(){
             var student = $("input[name='student']:checked");
             $config.userInfo.studentId = student.val();
@@ -43,6 +43,9 @@
             $("#second04").attr("href", params+$config.url.link4);
             $("#second05").attr("href", params+$config.url.link5);
             $("#second06").attr("href", params+$config.url.link6);
+            dwr.engine.setAsync(false);
+            var url1 = WebService.getWebServiceUrl($config.url.addStudent);
+            $("#addStudent").attr("href",url1+"?fromUserName="+$config.userInfo.weChatId+"&branchName="+$("#branchName").val());
         }
         //加载最新消息
         function loadFirst01(){
@@ -138,6 +141,7 @@
 </head>
 <body onload="onLoading()">
     <div id="pageIndex" data-role="page">
+        <input type="hidden" id="branchName" value="${requestScope.branchName}">
         <div data-role="header" data-position="fixed" data-position="inline" data-theme="a" class="container">
             <h1 class="ui-title">明日博·家校通</h1>
             <c:if test="${requestScope.length>1}">
@@ -200,6 +204,7 @@
                             <a href="#info-${object.studentId}" data-rel="dialog" data-icon="edit">修改</a>
                         </li>
                     </c:forEach>
+                    <li><a data-ajax="false" data-icon="plus" href="" style="text-align:center;" id="addStudent">添加</a></li>
                 </ul>
                 <ul data-role="listview" data-inset="true" style="margin-top:20px" data-split-icon="arrow-r" data-split-theme="d">
                     <li data-role="list-divider">联系方式</li>

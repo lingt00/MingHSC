@@ -40,7 +40,7 @@
             </div>
 
             <ul class="content-reply-box" id="content-reply-box-stu">
-               <c:forEach items="${requestScope.object.postReplyList}" var="postReply">
+               <c:forEach items="${requestScope.object.postReplyList}" var="postReply" varStatus="var">
                    <%--其他人的评论--%>
                     <c:if test="${empty postReply.studentUser or postReply.studentUser.id!=requestScope.studentUserId}">
                         <li class="odd">

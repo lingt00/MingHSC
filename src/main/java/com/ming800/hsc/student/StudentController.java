@@ -61,6 +61,7 @@ public class StudentController {
 //            }
             modelMap.put("length",userInfoList.size());
             modelMap.put("objectList",userInfoList);
+            modelMap.put("branchName",branchName==null?"":branchName);
             return new ModelAndView("student/studentIndex",modelMap);
         }else if (ResultMsgJson.CODE_204.equals(resultMsgJson.getCode())){
             return new ModelAndView("redirect:"+HttpUtil.getWebServiceUrl("student.formBind")+"?fromUserName="+openid+"&branchName="+(branchName==null?"":branchName));
