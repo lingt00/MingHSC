@@ -38,7 +38,7 @@ public class StudentController {
         String openid = map.get("openid");
         //测试用
 //        branchName = "twwt";
-        openid = "ohfJbuJsHcJE5oy6DLeitt7NLTcY1";
+//        openid = "ohfJbuJsHcJE5oy6DLeitt7NLTcY";
         if (StringUtils.isEmpty(openid)) {
             modelMap.put("message", "未授权或授权失效!");
             return new ModelAndView("/basis/messageShow", modelMap);
