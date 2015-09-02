@@ -38,7 +38,7 @@ public class StudentController {
         String openid = map.get("openid");
         //测试用
 //        branchName = "twwt";
-        openid = "ohfJbuJsHcJE5oy6DLeitt7NLTcY";
+        openid = "ohfJbuJsHcJE5oy6DLeitt7NLTcY1";
         if (StringUtils.isEmpty(openid)) {
             modelMap.put("message", "未授权或授权失效!");
             return new ModelAndView("/basis/messageShow", modelMap);
@@ -63,7 +63,7 @@ public class StudentController {
             modelMap.put("objectList",userInfoList);
             return new ModelAndView("student/studentIndex",modelMap);
         }else if (ResultMsgJson.CODE_204.equals(resultMsgJson.getCode())){
-            return new ModelAndView("redirect:"+HttpUtil.getWebServiceUrl("student.formBind"));
+            return new ModelAndView("redirect:"+HttpUtil.getWebServiceUrl("student.formBind")+"?fromUserName="+openid+"&branchName="+(branchName==null?"":branchName));
         }else{
             modelMap.put("message", "服务器连接错误,暂停服务!");
             return new ModelAndView("/basis/messageShow", modelMap);
