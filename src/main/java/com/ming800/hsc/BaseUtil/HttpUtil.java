@@ -102,7 +102,7 @@ public final class HttpUtil {
         }
         public static Map<?,?> doPostByKeyToMap(String urlKey,Map<String, String> params){
                 String json = doPostByKeyToString(urlKey, params);
-                if (!ResultMsgJson.CODE_504.equals(json)){
+                if (json!=null && !ResultMsgJson.CODE_504.equals(json.replaceAll("\"",""))){
                       return JsonUtil.parseJsonStringToMap(json);
                 }else {
                       return null ;
@@ -110,7 +110,7 @@ public final class HttpUtil {
         }
         public static List doPostByKeyToList(String urlKey,Map<String, String> params){
                 String json = doPostByKeyToString(urlKey, params);
-                if (!ResultMsgJson.CODE_504.equals(json)){
+                if (json!=null && !ResultMsgJson.CODE_504.equals(json.replaceAll("\"",""))){
                         JSONArray jsonArray = JSONArray.fromObject(json);
                       return jsonArray;
                 }else {

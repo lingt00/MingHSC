@@ -48,36 +48,34 @@
             $("#addStudent").attr("href",url1+"?fromUserName="+$config.userInfo.weChatId+"&branchName="+$("#branchName").val());
         }
         //加载最新消息
-        function loadFirst01(){
-            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
-            dwr.engine.setAsync(false);
-            var url1 = WebService.getWebServiceUrl('student.newPost');
-            ajaxCallbackShowEle(url1,data1,$("#first-01"),function(data){
+        function loadFirst01(data){
                 var ele = $("#first-01");
+                if(data==null || data==undefined || data==""){
+                    ele.html("未加载到数据,请稍后再试!");
+                    return false ;
+                }
                 var params = data.id +"&studentId="+$config.userInfo.studentId+"&studentUserId="+$config.userInfo.studentUserId;
                 var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/MsgDetail.do?id="/>"+params+"\">详情</a>";
                 ele.html(data.content+a1+"<br>"+data.createDatetime+"<br>"+data.creatorName);
-            });
         }
-        function loadFirst02(){
-            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
-            dwr.engine.setAsync(false);
-            var url1 = WebService.getWebServiceUrl('student.attendance');
-            ajaxCallbackShowEle(url1,data1,$("#first-02"),function(data){
+        function loadFirst02(data){
                 var ele = $("#first-02");
+            if(data==null || data==undefined || data==""){
+                ele.html("未加载到数据,请稍后再试!");
+                return false ;
+            }
                 var params = "?studentId="+$config.userInfo.studentId+"&studentUserId="+$config.userInfo.studentUserId;
                 var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/attendanceList.do"/>"+params+"\">更多</a>";
                 var p1 = "<p>["+data.mode+"]&nbsp;"+data.clazzInstance.course.name+"&nbsp;"+data.clazzInstance.name+"&nbsp;&nbsp;"+data.dateTime+"&nbsp;"+data.student.name+"&nbsp;考勤成功("+data.status+")。</p>";
                 var p2 = "<p>消耗课时:"+data.teachHour+"H,剩余课时:"+data.message+"H.</p>";
                 ele.html(p1+p2+a1);
-            });
         }
-        function loadFirst03(){
-            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
-            dwr.engine.setAsync(false);
-            var url1 = WebService.getWebServiceUrl('student.news');
-            ajaxCallbackShowEle(url1,data1,$("#first-03"),function(data){
+        function loadFirst03(data){
                 var ele = $("#first-03");
+            if(data==null || data==undefined || data==""){
+                ele.html("未加载到数据,请稍后再试!");
+                return false ;
+            }
                 var params = "?studentId="+$config.userInfo.studentId+"&studentUserId="+$config.userInfo.studentUserId;
                 var a1 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/newsDetail.do"/>"+params+"&id="+data.id+"\">详情</a>";
                 var a2 = "<a role=\"button\" data-ajax=\"false\" class=\"btn btn-info btn-xs\" style=\"font-size:10px;\" href=\"<c:url value="/student/jb/newsList.do"/>"+params+"\">更多</a>";
@@ -85,30 +83,39 @@
                 var p2 = "<h5>"+data.theDatetime+"</h5>";
                 var p3 = "<p>"+data.content+a1+"</p>";
                 ele.html(p1+p2+p3+a2);
-            });
         }
-        function loadFirst04(){
-            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
-            dwr.engine.setAsync(false);
-            var url1 = WebService.getWebServiceUrl('student.sysLogList');
-            ajaxCallbackShowEle(url1,data1,$("#first-04"),function(dataList){
-                var ele = $("#first-04");
+        function loadFirst04(dataList){
+            var ele = $("#first-04");
+            if(dataList==null || dataList==undefined || dataList==""){
+                ele.html("未加载到数据,请稍后再试!");
+                return false ;
+            }
                 var p = "";
                 for(var idx in dataList){
                     var data = dataList[idx];
                     p += "<p>"+data.message+"</p>";
                 }
                 ele.html(p);
-            });
         }
 
         function onLoading(){
             loadConfig();
             loadLink();
-            loadFirst01();
-            loadFirst02();
-            loadFirst03();
-            loadFirst04();
+            var data1 = {'studentId':$config.userInfo.studentId,'studentUserId':$config.userInfo.studentUserId};
+            var url1 = "<c:url value="/student/load.do"/>";
+            ajaxCallback(url1,data1,2,function(data){
+                console.log(data);
+//                console.log(data.newPost);
+//                console.log(data.attendance);
+//                console.log(data.news);
+//                console.log(data.sysLogList);
+                loadFirst01(data.newPost);
+                loadFirst02(data.attendance);
+                loadFirst03(data.news);
+                loadFirst04(data.sysLogList);
+            },function(XMLHttpRequest, textStatus, errorThrown){
+
+            });
         }
 
         function saveOrUpdate(idEle){
@@ -154,26 +161,34 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">最新信息</div>
                     <div class="panel-body">
-                        <p id="first-01"></p>
+                        <p id="first-01">
+                            <img src='<c:url value="/jQuery/commontool/ajax-loader.gif"/>' width='20' height='20'>&nbsp;&nbsp;数据加载中,请稍后...
+                        </p>
                     </div>
                 </div>
 
                 <div class="panel panel-default">
                     <div class="panel-heading">出勤</div>
                     <div class="panel-body">
-                        <p id="first-02"></p>
+                        <p id="first-02">
+                            <img src='<c:url value="/jQuery/commontool/ajax-loader.gif"/>' width='20' height='20'>&nbsp;&nbsp;数据加载中,请稍后...
+                        </p>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">公告</div>
                     <div class="panel-body">
-                        <div id="first-03" style="overflow: hidden;"></div>
+                        <div id="first-03" style="overflow: hidden;">
+                            <img src='<c:url value="/jQuery/commontool/ajax-loader.gif"/>' width='20' height='20'>&nbsp;&nbsp;数据加载中,请稍后...
+                        </div>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">系统消息</div>
                     <div class="panel-body">
-                        <div id="first-04"></div>
+                        <div id="first-04">
+                            <img src='<c:url value="/jQuery/commontool/ajax-loader.gif"/>' width='20' height='20'>&nbsp;&nbsp;数据加载中,请稍后...
+                        </div>
                     </div>
                 </div>
             </div>

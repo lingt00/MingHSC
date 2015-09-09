@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,13 +40,14 @@ public class StudentController {
         //测试用
 //        branchName = "twwt";
 //        openid = "ohfJbuJsHcJE5oy6DLeitt7NLTcY";
+//        openid = "optG7jjN2e1Y92vkUOmLUlFU6WpI";
         if (StringUtils.isEmpty(openid)) {
             modelMap.put("message", "未授权或授权失效!");
             return new ModelAndView("/basis/messageShow", modelMap);
         }
 
         Map<String,String> params = new HashMap<>();
-        params.put("branchName",branchName==null?"":branchName);
+        params.put("branchName", branchName == null ? "" : branchName);
         params.put("username",openid);
         ResultMsgJson resultMsgJson = HttpUtil.doPostByKeyToObject("student.login",params);
         if (ResultMsgJson.CODE_200.equals(resultMsgJson.getCode()) && resultMsgJson.getUserInfoList()!=null && resultMsgJson.getUserInfoList().size()>0){
@@ -178,5 +180,28 @@ public class StudentController {
     @RequestMapping(value = "/jb/stuWorkLogList.do",method = RequestMethod.GET)
     public  ModelAndView stuWorkLogList(){
         return new ModelAndView("student/studentWorkLogList");
+    }
+    @RequestMapping(value = "/load.do",method = RequestMethod.POST)
+    @ResponseBody
+    public Object loadIndex(HttpServletRequest request,ModelMap modelMap){
+        String studentId = request.getParameter("studentId");
+        String studentUserId = request.getParameter("studentUserId");
+        Map<String,String> params = new HashMap<>();
+        params.put("studentId",studentId);
+        params.put("studentUserId",studentUserId);
+//        Long time = System.currentTimeMillis() ;
+        Map newPost = HttpUtil.doPostByKeyToMap("student.newPost",params);
+        Map attendance = HttpUtil.doPostByKeyToMap("student.attendance",params);
+        Map news = HttpUtil.doPostByKeyToMap("student.news",params);
+        List sysLogList = HttpUtil.doPostByKeyToList("student.sysLogList", params);
+//        System.out.println(System.currentTimeMillis()-time);
+        Map<String,Object> res = new HashMap<>();
+        res.put("newPost",newPost);
+        res.put("attendance",attendance);
+        res.put("news",news);
+        res.put("sysLogList",sysLogList);
+//        String str = JsonUtil.getJsonString(res);
+//        System.out.println(str);
+        return res;
     }
 }
